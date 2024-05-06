@@ -1,9 +1,11 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Animated, { ZoomIn, FadeOut } from "react-native-reanimated";
+
 export default function CardView({
   book_title,
   book_author,
@@ -21,21 +23,28 @@ export default function CardView({
         exiting={FadeOut.delay(500)}
         style={styles.cardStyle}
       >
-        <View style={styles.bookInfoContainer}>
-          {/* Book Image */}
-          <Image
-            style={styles.imageContainer}
-            source={require("../assets/img/book_img.png")}
-          >
-            {book_img}
-          </Image>
-          <View style={styles.textContainer}>
-            {/* Book Name/Title */}
-            <Text style={styles.bookTitle}>{book_title}</Text>
-            {/* Book Author */}
-            <Text style={styles.bookAuthor}>{book_author}</Text>
+        <LinearGradient
+          colors={["#DAE2F8", "#D6A4A4"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.gradient}
+        >
+          <View style={styles.bookInfoContainer}>
+            {/* Book Image */}
+            <Image
+              style={styles.imageContainer}
+              source={require("../assets/img/book_img.png")}
+            >
+              {book_img}
+            </Image>
+            <View style={styles.textContainer}>
+              {/* Book Name/Title */}
+              <Text style={styles.bookTitle}>{book_title}</Text>
+              {/* Book Author */}
+              <Text style={styles.bookAuthor}>{book_author}</Text>
+            </View>
           </View>
-        </View>
+        </LinearGradient>
       </Animated.View>
     </TouchableOpacity>
   );
@@ -45,13 +54,17 @@ const styles = StyleSheet.create({
   cardStyle: {
     height: hp(20),
     width: wp(95),
-    backgroundColor: "#f0ebeb",
     borderRadius: 30,
     borderWidth: 1,
     borderColor: "#671111",
     margin: hp(1),
     gap: 2,
     flexDirection: "column",
+    overflow: "hidden", // To ensure gradient doesn't overflow
+  },
+  gradient: {
+    flex: 1,
+    borderRadius: 30,
   },
   cardHitbox: {
     width: wp(100),

@@ -22,7 +22,6 @@ const TabNavigator = () => (
   <Tab.Navigator
     screenOptions={{
       tabBarStyle: styles.tabBarStyle,
-      tabBarLabelStyle: styles.tabBarLabelStyle,
       tabBarActiveTintColor: "#430909", // Active Tab Color
       tabBarInactiveTintColor: "#870F0F", // Inactive Tab Color
       tabBarShowLabel: false,
@@ -95,7 +94,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   tabBarStyle: {
-    backgroundColor: "white",
+    backgroundColor: "pink",
     height: hp(10),
     position: "absolute",
     bottom: hp(0),
