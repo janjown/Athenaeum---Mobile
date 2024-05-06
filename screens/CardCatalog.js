@@ -30,7 +30,11 @@ export default function CardCatalog() {
     /* CardView Renderer */
     <View>
       <View>
-        <CardView book_title={item.book_title} book_author={item.book_author} />
+        <CardView
+          onPress={() => console.log("User tapped a book.")}
+          book_title={item.book_title}
+          book_author={item.book_author}
+        />
       </View>
     </View>
   );

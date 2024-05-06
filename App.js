@@ -1,4 +1,5 @@
 import * as React from "react";
+import "react-native-gesture-handler";
 import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -94,11 +95,10 @@ export default function App() {
 
 const styles = StyleSheet.create({
   tabBarStyle: {
-    backgroundColor: "pink",
+    backgroundColor: "white",
     height: hp(10),
     position: "absolute",
     bottom: hp(0),
-    elevation: 0,
     borderTopWidth: 0,
     paddingTop: hp(3),
     justifyContent: "center",

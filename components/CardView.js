@@ -12,10 +12,15 @@ export default function CardView({
   book_img,
   onPress,
 }) {
+  const handlePress = () => {
+    console.log("CardView pressed: ", book_title); // or any other data you want to log
+    onPress(); // calling the onPress prop passed from the parent component
+  };
+
   return (
     <TouchableOpacity
       style={styles.cardHitbox}
-      onPress={onPress}
+      onPress={handlePress}
       activeOpacity={1}
     >
       <Animated.View
