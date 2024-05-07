@@ -9,6 +9,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+
 // Screen Imports
 import SplashIntro from "./screens/SplashIntro";
 import Login from "./screens/Login";
@@ -23,17 +24,21 @@ const TabNavigator = () => (
   <Tab.Navigator
     screenOptions={{
       tabBarStyle: styles.tabBarStyle,
-      tabBarActiveTintColor: "#430909", // Active Tab Color
+      tabBarActiveTintColor: "#7D0707", // Change active tab color to blue
       tabBarInactiveTintColor: "#870F0F", // Inactive Tab Color
       tabBarShowLabel: false,
     }}
   >
     <Tab.Screen
-      name="Card Catalog"
+      name="Card Catalog Container"
       component={CardCatalog}
       options={{
         tabBarIcon: ({ focused, color, size }) => (
-          <Ionicons name={focused ? "home" : "home-outline"} size={size} />
+          <Ionicons
+            name={focused ? "home" : "home-outline"}
+            size={size}
+            color={color}
+          />
         ),
         headerShown: false,
       }}
@@ -46,6 +51,7 @@ const TabNavigator = () => (
           <Ionicons
             name={focused ? "library" : "library-outline"}
             size={size}
+            color={color}
           />
         ),
         headerShown: false,
@@ -56,7 +62,11 @@ const TabNavigator = () => (
       component={Reservation}
       options={{
         tabBarIcon: ({ focused, color, size }) => (
-          <Ionicons name={focused ? "reader" : "reader-outline"} size={size} />
+          <Ionicons
+            name={focused ? "reader" : "reader-outline"}
+            size={size}
+            color={color}
+          />
         ),
         headerShown: false,
       }}
@@ -95,12 +105,13 @@ export default function App() {
 
 const styles = StyleSheet.create({
   tabBarStyle: {
-    backgroundColor: "white",
+    backgroundColor: "#E8D0D0",
     height: hp(10),
     position: "absolute",
     bottom: hp(0),
     borderTopWidth: 0,
     paddingTop: hp(3),
+    paddingBottom: hp(2.5),
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
