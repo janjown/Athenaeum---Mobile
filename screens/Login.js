@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Modal,
   TextInput,
+  Dimensions,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
@@ -69,7 +70,7 @@ export default function Login() {
   const handleLogin = async () => {
     try {
       setisLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 5000));
+      await new Promise((resolve) => setTimeout(resolve, 20000));
       console.log(
         "Logging in with:",
         idNumber,
@@ -350,5 +351,14 @@ const styles = StyleSheet.create({
   eyeIcon: {
     position: "absolute",
     right: wp(5),
+  },
+  animation: {
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    flex: 1,
+    zIndex: -1,
   },
 });

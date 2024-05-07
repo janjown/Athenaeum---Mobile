@@ -8,6 +8,7 @@ import {
 } from "react-native-responsive-screen";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
+import LottieView from "lottie-react-native";
 // Component Imports
 import CardView from "../components/CardView";
 import bookData, { books } from "../data_samples/bookData";
@@ -38,8 +39,8 @@ export default function CardCatalog() {
       </View>
     </View>
   );
-
   /* end of CardView Renderer */
+
   /* if list is empty */
   const emptyList = (
     <View style={styles.emptyListContainer}>
@@ -50,6 +51,7 @@ export default function CardCatalog() {
       <Text style={styles.emptyListText}>Something went wrong.</Text>
     </View>
   );
+
   return (
     /* Container */
     <View style={styles.container}>

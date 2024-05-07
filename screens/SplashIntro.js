@@ -5,6 +5,10 @@ import LottieView from "lottie-react-native";
 import { useFonts } from "expo-font";
 import Animated, { FadeInDown } from "react-native-reanimated";
 import { useNavigation } from "@react-navigation/native";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
 export default function SplashIntro() {
   const navigation = useNavigation();
@@ -29,7 +33,7 @@ export default function SplashIntro() {
           style={styles.appTitle}
           className="font-bold absolute"
         >
-          Athenaeum
+          ATHENAEUM
         </Animated.Text>
 
         {/* Lottie Animation */}
@@ -54,14 +58,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
   },
   animation: {
-    bottom: 30,
-    height: 500,
-    width: 500,
-    marginBottom: 150,
+    bottom: hp(3),
+    height: hp(63),
+    width: wp(100),
+    marginBottom: hp(20),
   },
   appTitle: {
-    top: 300,
-    fontSize: 55,
+    top: hp(40),
+    fontSize: 50,
     color: "#671111",
     fontFamily: "CreteRound-Regular",
   },
