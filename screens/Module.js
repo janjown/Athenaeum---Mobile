@@ -9,7 +9,7 @@ import Animated, { FadeInDown } from "react-native-reanimated";
 
 // Components
 import ButtonComponent from "../components/ButtonComponent";
-export default function Module({ text }) {
+export default function Module({ navigation }) {
   return (
     <SafeAreaView style={style.container}>
       <View style={style.centered}>
@@ -18,10 +18,16 @@ export default function Module({ text }) {
       </View>
       <View style={style.buttonContainer}>
         <View style={style.studentContainer}>
-          <ButtonComponent text={"Student"} />
+          <ButtonComponent
+            text={"Student"}
+            onPress={() => navigation.navigate("Student Registration")}
+          />
         </View>
         <View style={style.facultyContainer}>
-          <ButtonComponent text={"Faculty"} />
+          <ButtonComponent
+            text={"Faculty"}
+            onPress={() => navigation.navigate("Faculty Registration")}
+          />
         </View>
       </View>
       <Text style={style.school}>EARIST - Cavite Campus</Text>

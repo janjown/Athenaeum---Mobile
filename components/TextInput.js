@@ -1,0 +1,31 @@
+import React from "react";
+import { StyleSheet, Text, View, TextInput } from "react-native";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
+
+export default function textInput(props) {
+  return (
+    <View style={styles.textInputContainer}>
+      <View style={styles.textInput}>
+        <TextInput {...props} />
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  textInputContainer: {
+    padding: 5,
+    paddingHorizontal: wp(10),
+    alignContent: "center",
+    justifyContent: "center",
+  },
+  textInput: {
+    padding: 20,
+    borderColor: "#671111",
+    borderWidth: 1,
+    borderRadius: 10,
+  },
+});

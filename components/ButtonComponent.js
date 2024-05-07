@@ -4,7 +4,7 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
-export default function ButtonComponent({ text, onPress }) {
+export default function ButtonComponent({ text, onPress, navigation }) {
   return (
     <TouchableOpacity
       style={styles.buttonContainer}

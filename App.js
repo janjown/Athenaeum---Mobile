@@ -13,6 +13,8 @@ import {
 // Screen Imports
 import SplashIntro from "./screens/SplashIntro";
 import Login from "./screens/Login";
+import Register_Student from "./screens/Register_Student";
+import Register_Faculty from "./screens/Register_Faculty";
 import CardCatalog from "./screens/CardCatalog";
 import Borrowed from "./screens/Borrowed";
 import Reservation from "./screens/Reservatiion";
@@ -86,6 +88,16 @@ export default function App() {
         <Stack.Screen
           name="Login"
           component={Login}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Student Registration"
+          component={Register_Student}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Faculty Registration"
+          component={Register_Faculty}
           options={{ headerShown: false }}
         />
         <Stack.Screen
