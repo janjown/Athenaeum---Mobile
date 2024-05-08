@@ -5,7 +5,7 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
-export default function textInput(props) {
+export default function TextInputComponent(props) {
   return (
     <View style={styles.textInputContainer}>
       <View style={styles.textInput}>

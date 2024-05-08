@@ -8,6 +8,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 // Components
 import DropdownComponent from "../components/dropDown_registration";
+import TextInputComponent from "../components/TextInputComponent";
 
 export default function Register_Student({}) {
   return (
@@ -18,8 +19,11 @@ export default function Register_Student({}) {
           source={require("../assets/img/logo-no-background.png")}
         />
       </View>
-      <View style={styles.fillUpForm}>
+      <View style={styles.programSelection}>
         <DropdownComponent />
+      </View>
+      <View style={styles.fillUpForm}>
+        <TextInputComponent />
       </View>
     </SafeAreaView>
   );
@@ -42,6 +46,9 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     color: "black",
+  },
+  programSelection: {
+    width: wp(100),
   },
   fillUpForm: {
     width: wp(100),
