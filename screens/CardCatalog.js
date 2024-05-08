@@ -74,6 +74,7 @@ export default function CardCatalog() {
         ListEmptyComponent={emptyList}
         refreshing={refreshing}
         onRefresh={handleRefresh}
+        showsVerticalScrollIndicator={false}
       />
       <StatusBar style="light" translucent={true} hidden={false} />
     </View>

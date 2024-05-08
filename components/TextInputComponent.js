@@ -17,15 +17,18 @@ export default function TextInputComponent(props) {
 
 const styles = StyleSheet.create({
   textInputContainer: {
+    width: wp(100),
     padding: 5,
     paddingHorizontal: wp(10),
     alignContent: "center",
     justifyContent: "center",
   },
   textInput: {
-    padding: 20,
+    width: wp(80),
+    padding: hp(2),
     borderColor: "#671111",
-    borderWidth: 1,
+    borderWidth: 2,
     borderRadius: 10,
+    justifyContent: "center",
   },
 });
