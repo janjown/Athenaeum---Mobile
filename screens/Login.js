@@ -43,6 +43,7 @@ export default function Login() {
 
   const loginTextY = useSharedValue(0);
   const logoY = useSharedValue(0);
+  const inputY = useSharedValue(0);
 
   const [randomQuotes, setRandomQuotes] = useState("");
   const loaderQuotes = [
@@ -87,6 +88,7 @@ export default function Login() {
   const handleRegister = () => {
     navigation.navigate("Module");
   };
+
   const animatedLoginTextStyles = useAnimatedStyle(() => {
     return {
       transform: [{ translateY: loginTextY.value }],
@@ -97,17 +99,24 @@ export default function Login() {
       transform: [{ translateY: logoY.value }],
     };
   });
+  const animatedInputStyles = useAnimatedStyle(() => {
+    return {
+      transform: [{ translateY: inputY.value }],
+    };
+  });
 
   /* Active Input Field Configurations */
   // For text.
   const onFocusInput = () => {
     loginTextY.value = withSpring(-50);
     logoY.value = withSpring(-25);
+    inputY.value = withSpring(-50);
   };
   // For logo.
   const onBlurInput = () => {
     loginTextY.value = withSpring(0);
     logoY.value = withSpring(0);
+    inputY.value = withSpring(0);
   };
 
   /* Loader Configs */
@@ -167,36 +176,38 @@ export default function Login() {
             >
               <Text style={styles.text}>LOGIN</Text>
             </Animated.View>
-            <TextInput
-              style={styles.inputID}
-              placeholder="ID Number"
-              onChangeText={(text) => setidNumber(text)}
-              value={idNumber}
-              onFocus={onFocusInput}
-              onBlur={onBlurInput}
-            />
-            <View style={styles.inputContainer}>
+            <Animated.View style={animatedInputStyles}>
               <TextInput
-                style={styles.inputPassword}
-                placeholder="Password"
-                secureTextEntry={passwordVisibility}
-                onChangeText={(text) => setPassword(text)}
-                value={password}
+                style={styles.inputID}
+                placeholder="ID Number"
+                onChangeText={(text) => setidNumber(text)}
+                value={idNumber}
                 onFocus={onFocusInput}
                 onBlur={onBlurInput}
               />
-              {/* Add the eye icon button */}
-              <TouchableOpacity
-                onPress={togglePasswordVisibility}
-                style={styles.eyeIcon}
-              >
-                <FontAwesome5
-                  name={passwordVisibility ? "eye-slash" : "eye"}
-                  size={20}
-                  color="#555"
+              <View style={styles.inputContainer}>
+                <TextInput
+                  style={styles.inputPassword}
+                  placeholder="Password"
+                  secureTextEntry={passwordVisibility}
+                  onChangeText={(text) => setPassword(text)}
+                  value={password}
+                  onFocus={onFocusInput}
+                  onBlur={onBlurInput}
                 />
-              </TouchableOpacity>
-            </View>
+                {/* Add the eye icon button */}
+                <TouchableOpacity
+                  onPress={togglePasswordVisibility}
+                  style={styles.eyeIcon}
+                >
+                  <FontAwesome5
+                    name={passwordVisibility ? "eye-slash" : "eye"}
+                    size={20}
+                    color="#555"
+                  />
+                </TouchableOpacity>
+              </View>
+            </Animated.View>
           </View>
         </KeyboardAvoidingView>
         <View style={styles.buttonsContainer}>

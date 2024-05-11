@@ -1,10 +1,10 @@
 import * as React from "react";
 import "react-native-gesture-handler";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Animated } from "react-native"; // Import Animated
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons"; // Import Ionicons
+import { Ionicons } from "@expo/vector-icons";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -17,66 +17,75 @@ import Register_Student from "./screens/Register_Student";
 import Register_Faculty from "./screens/Register_Faculty";
 import CardCatalog from "./screens/CardCatalog";
 import Borrowed from "./screens/Borrowed";
-import Reservation from "./screens/Reservatiion";
+import Reservation from "./screens/Reservation";
 import Module from "./screens/Module";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
-const TabNavigator = () => (
-  <Tab.Navigator
-    screenOptions={{
-      tabBarStyle: styles.tabBarStyle,
-      tabBarActiveTintColor: "#7D0707", // Change active tab color to blue
-      tabBarInactiveTintColor: "#870F0F", // Inactive Tab Color
-      tabBarShowLabel: false,
-    }}
-  >
-    <Tab.Screen
-      name="Card Catalog Container"
-      component={CardCatalog}
-      options={{
-        tabBarIcon: ({ focused, color, size }) => (
-          <Ionicons
-            name={focused ? "home" : "home-outline"}
-            size={size}
-            color={color}
-          />
-        ),
-        headerShown: false,
-      }}
-    />
-    <Tab.Screen
-      name="Borrowed"
-      component={Borrowed}
-      options={{
-        tabBarIcon: ({ focused, color, size }) => (
-          <Ionicons
-            name={focused ? "library" : "library-outline"}
-            size={size}
-            color={color}
-          />
-        ),
-        headerShown: false,
-      }}
-    />
-    <Tab.Screen
-      name="Reservation"
-      component={Reservation}
-      options={{
-        tabBarIcon: ({ focused, color, size }) => (
-          <Ionicons
-            name={focused ? "reader" : "reader-outline"}
-            size={size}
-            color={color}
-          />
-        ),
-        headerShown: false,
-      }}
-    />
-  </Tab.Navigator>
-);
 
 export default function App() {
+  const scrollY = React.useRef(new Animated.Value(0)).current; // Create Animated.Value for tracking scroll position
+
+  const tabBarOpacity = scrollY.interpolate({
+    inputRange: [0, 100], // Adjust these values as needed
+    outputRange: [1, 0], // Adjust opacity values as needed
+    extrapolate: "clamp",
+  });
+
+  const TabNavigator = () => (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: styles.tabBarStyle,
+        tabBarActiveTintColor: "#7D0707",
+        tabBarInactiveTintColor: "#870F0F",
+        tabBarShowLabel: false,
+      }}
+    >
+      <Tab.Screen
+        name="Card Catalog Container"
+        component={CardCatalog}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons
+              name={focused ? "home" : "home-outline"}
+              size={size}
+              color={color}
+            />
+          ),
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen
+        name="Borrowed"
+        component={Borrowed}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons
+              name={focused ? "library" : "library-outline"}
+              size={size}
+              color={color}
+            />
+          ),
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen
+        name="Reservation"
+        component={Reservation}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons
+              name={focused ? "reader" : "reader-outline"}
+              size={size}
+              color={color}
+            />
+          ),
+          headerShown: false,
+        }}
+      />
+    </Tab.Navigator>
+  );
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="SplashIntro">
@@ -108,6 +117,11 @@ export default function App() {
         <Stack.Screen
           name="Card Catalog"
           component={TabNavigator}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Reservation"
+          component={Reservation}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
