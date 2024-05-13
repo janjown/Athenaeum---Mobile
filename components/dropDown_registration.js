@@ -23,8 +23,11 @@ const data = [
         label: "Industrial Technology",
         value: "industrial",
         children: [
-          { label: "Sub Category 1", value: "sub1" },
-          { label: "Sub Category 2", value: "sub2" },
+          { label: "Electronic Technology (BSIT-ELENIC", value: "sub1" },
+          { label: "Electrical Technology (BSIT-ELECAL)", value: "sub2" },
+          { label: "Automotive Technology (BSIT-AT)", value: "sub3" },
+          { label: "Drafting Technology (BSIT-DT)", value: "sub4" },
+          { label: "Food Technology (BSIT-FT)", value: "sub5" },
         ],
       },
     ],

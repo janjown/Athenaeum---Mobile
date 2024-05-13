@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
+    paddingTop: hp(2),
   },
   scrollViewContent: {
     flexGrow: 1,
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
     height: hp(20),
     width: wp(60),
     maxWidth: wp(601),
-    marginBottom: hp(1),
+    marginBottom: hp(0),
     resizeMode: "contain",
   },
   text: {
@@ -97,9 +98,11 @@ const styles = StyleSheet.create({
   },
   programSelection: {
     width: wp(100),
-    marginBottom: hp(0), // Adjust as needed for spacing
+    marginTop: hp(1), // Adjust as needed for spacing
   },
   fillUpForm: {
+    flex: 1,
+    marginTop: hp(2),
     width: wp(100),
   },
   buttonRegister: {
@@ -109,7 +112,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#671111",
     fontFamily: "CreteRound-Regular",
     borderRadius: 10,
-    marginTop: hp(3),
+    marginTop: hp(5),
     height: hp(5),
     width: wp(50),
   },
