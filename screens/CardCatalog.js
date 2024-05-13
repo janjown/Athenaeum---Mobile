@@ -68,6 +68,7 @@ export default function CardCatalog() {
       </View>
 
       <FlatList
+        style={styles.flatlistContainer}
         data={books}
         renderItem={renderBook}
         keyExtractor={(item, id) => id.toString()}

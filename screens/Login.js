@@ -71,7 +71,7 @@ export default function Login() {
   const handleLogin = async () => {
     try {
       setisLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 20000));
+      await new Promise((resolve) => setTimeout(resolve));
       console.log(
         "Logging in with:",
         idNumber,
