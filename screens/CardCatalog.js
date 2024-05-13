@@ -87,14 +87,15 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
+    alignContent: "center",
   },
   headerContainer: {
     height: hp(18),
     width: wp(100),
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40,
     alignContent: "center",
     justifyContent: "center",
     alignItems: "center",
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: wp(50),
-    height: hp(13),
+    height: hp(10),
     marginTop: hp(3),
   },
   sectionContainer: {
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
     alignContent: "center",
     textAlign: "center",
     alignItems: "center",
-    marginTop: hp(-3),
+    marginBottom: hp(2),
   },
 
   sectionText: {
