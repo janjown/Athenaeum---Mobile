@@ -280,7 +280,7 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     backgroundColor: "#671111",
-    fontFamily: "CreteRound-Regular",
+    fontFamily: "CreteRound-Regular", // IOS onle :<
     borderRadius: 10,
     height: hp(5),
   },
