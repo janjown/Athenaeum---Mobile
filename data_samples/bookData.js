@@ -2,19 +2,19 @@ export const books = [
   {
     id: 1,
     book_title: "The Hobbit",
-    book_author: "Warner Bros",
+    book_author: "J.K Rowling",
   },
 
   {
     id: 2,
-    book_title: "Ang Madamong Halaman ni Tita",
-    book_author: "Test Book",
+    book_title: "A Walk to Remember",
+    book_author: "Wattpad",
   },
 
   {
     id: 3,
-    book_title: "Ang Pagbayo",
-    book_author: "Mang Kinamers",
+    book_title: "Palay",
+    book_author: "Farmer Stories",
   },
 
   {
