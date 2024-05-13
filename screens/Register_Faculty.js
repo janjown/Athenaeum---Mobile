@@ -16,7 +16,6 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 // Components
-import DropdownComponent from "../components/dropDown_registration";
 import TextInputComponent from "../components/TextInputComponent";
 import TextInputPassword from "../components/TextInputPassword";
 
