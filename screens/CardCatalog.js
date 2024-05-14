@@ -1,7 +1,15 @@
-import { View, StyleSheet, FlatList, Image, Text } from "react-native";
+import {
+  View,
+  StyleSheet,
+  FlatList,
+  Image,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
+
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -61,6 +69,22 @@ export default function CardCatalog() {
           style={styles.logo}
           source={require("../assets/img/logo-white-ai-brushed.png")}
         />
+        <TouchableOpacity style={styles.buttonProfile}>
+          <LottieView
+            style={styles.buttonAnimationProfile}
+            source={require("../assets/animations/user-profile.json")}
+            autoPlay
+            loop
+          />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonSettings}>
+          <LottieView
+            style={styles.buttonAnimationSettings}
+            source={require("../assets/animations/settings.json")}
+            autoPlay
+            loop
+          />
+        </TouchableOpacity>
         {/* Section Title */}
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionText}>Card Catalog</Text>
@@ -83,6 +107,10 @@ export default function CardCatalog() {
 }
 
 const styles = StyleSheet.create({
+  flatlistContainer: {
+    marginTop: hp(0),
+    marginLeft: wp(1),
+  },
   container: {
     flex: 1,
     backgroundColor: "white",
@@ -169,5 +197,35 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 100,
     borderBottomLeftRadius: 100,
     borderBottomRightRadius: 100,
+  },
+  buttonProfile: {
+    position: "absolute",
+    height: hp(8),
+    paddingLeft: wp(80),
+    paddingBottom: hp(3),
+    width: wp(8),
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonAnimationProfile: {
+    width: wp(10),
+    height: hp(5),
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonSettings: {
+    position: "absolute",
+    height: hp(8),
+    paddingRight: wp(80),
+    paddingBottom: hp(3),
+    width: wp(8),
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonAnimationSettings: {
+    width: wp(10),
+    height: hp(5),
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
