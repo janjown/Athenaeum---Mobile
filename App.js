@@ -19,6 +19,7 @@ import CardCatalog from "./screens/CardCatalog";
 import Borrowed from "./screens/Borrowed";
 import Reservation from "./screens/Reservation";
 import Module from "./screens/Module";
+import Settings from "./screens/Settings";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -124,6 +125,7 @@ export default function App() {
           component={Reservation}
           options={{ headerShown: false }}
         />
+        <Stack.Screen name="Settings" component={Settings} />
       </Stack.Navigator>
     </NavigationContainer>
   );
