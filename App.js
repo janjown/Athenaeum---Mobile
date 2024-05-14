@@ -125,7 +125,11 @@ export default function App() {
           component={Reservation}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen
+          name="Settings"
+          component={Settings}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
