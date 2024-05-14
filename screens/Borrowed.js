@@ -19,6 +19,7 @@ import { useState } from "react";
 import LottieView from "lottie-react-native";
 // Component Imports
 import CardView from "../components/CardView";
+import Modal_Profile from "../components/Modal_Profile";
 import bookData, { books } from "../data_samples/bookData";
 export default function CardCatalog() {
   /* Itong part na 'to, it will act as a refresher.
@@ -69,31 +70,33 @@ export default function CardCatalog() {
           style={styles.logo}
           source={require("../assets/img/logo-white-ai-brushed.png")}
         />
-        <TouchableOpacity style={styles.buttonProfile}>
-          <LottieView
-            style={styles.buttonAnimationProfile}
-            source={require("../assets/animations/user-profile.json")}
-            autoPlay
-            loop
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonSettings}>
-          <LottieView
-            style={styles.buttonAnimationSettings}
-            source={require("../assets/animations/settings.json")}
-            autoPlay
-            loop
-          />
-        </TouchableOpacity>
+        <View style={styles.animationContainer}>
+          <TouchableOpacity style={styles.buttonSettings}>
+            <LottieView
+              style={styles.buttonAnimationSettings}
+              source={require("../assets/animations/settings.json")}
+              autoPlay
+              loop
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.buttonProfile}>
+            <LottieView
+              style={styles.buttonAnimationProfile}
+              source={require("../assets/animations/user-profile.json")}
+              autoPlay
+              loop
+            />
+          </TouchableOpacity>
+        </View>
         {/* Section Title */}
         <View style={styles.sectionContainer}>
-          <Text style={styles.sectionText}>Card Catalog</Text>
+          <Text style={styles.sectionText}>Borrowed</Text>
         </View>
       </View>
 
       <FlatList
         style={styles.flatlistContainer}
-        /* data={books} */
+        data={books}
         renderItem={renderBook}
         keyExtractor={(item, id) => id.toString()}
         ListEmptyComponent={emptyList}
@@ -199,11 +202,8 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 100,
   },
   buttonProfile: {
-    position: "absolute",
-    height: hp(8),
-    paddingLeft: wp(80),
-    paddingBottom: hp(3),
-    width: wp(8),
+    width: wp(10),
+    height: hp(5),
     justifyContent: "center",
     alignItems: "center",
   },
@@ -214,11 +214,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonSettings: {
-    position: "absolute",
-    height: hp(8),
-    paddingRight: wp(80),
-    paddingBottom: hp(3),
-    width: wp(8),
+    width: wp(10),
+    height: hp(5),
     justifyContent: "center",
     alignItems: "center",
   },
@@ -227,5 +224,10 @@ const styles = StyleSheet.create({
     height: hp(5),
     justifyContent: "center",
     alignItems: "center",
+  },
+  animationContainer: {
+    position: "absolute",
+    flexDirection: "row",
+    gap: wp(70),
   },
 });

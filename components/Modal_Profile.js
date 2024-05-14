@@ -3,9 +3,9 @@ import React from "react";
 
 export default function Modal_Profile() {
   return (
-    <View>
-      <Text>Modal_Profile</Text>
-    </View>
+    <Modal>
+      <Text>Account Profile</Text>
+    </Modal>
   );
 }
 
