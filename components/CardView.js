@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
   },
   bookInfoContainer: {
     flexDirection: "column",
+    marginTop: hp(1),
     /* backgroundColor: "green", */
     width: wp(90),
     justifyContent: "center",
@@ -107,6 +108,7 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     fontWeight: "bold",
     alignSelf: "center",
+    /* backgroundColor: "green", */
     fontSize: wp(5),
     color: "#671111",
   },
