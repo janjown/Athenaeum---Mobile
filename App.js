@@ -20,6 +20,7 @@ import Borrowed from "./screens/Borrowed";
 import Reservation from "./screens/Reservation";
 import Module from "./screens/Module";
 import Settings from "./screens/Settings";
+import Search from "./screens/Search";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -77,6 +78,20 @@ export default function App() {
           tabBarIcon: ({ focused, color, size }) => (
             <Ionicons
               name={focused ? "reader" : "reader-outline"}
+              size={size}
+              color={color}
+            />
+          ),
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen
+        name="Search"
+        component={Search}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons
+              name={focused ? "search" : "search-outline"}
               size={size}
               color={color}
             />
