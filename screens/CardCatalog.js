@@ -25,13 +25,6 @@ export default function CardCatalog({ navigation, onPress }) {
   /* Itong part na 'to, it will act as a refresher.
      Ikaw na bahala mag fetch ng data and how many 
      data yung ife-fetch per refresh. - Yorme     */
-  const handleProfile = () => {
-    navigation.navigate("Account");
-  };
-
-  const handleSettings = () => {
-    navigation.navigate("Settings");
-  };
 
   const [refreshing, setRefreshing] = useState(false);
   const handleRefresh = () => {
@@ -42,6 +35,13 @@ export default function CardCatalog({ navigation, onPress }) {
   };
 
   /* end of Refresher  */
+  const handleProfile = () => {
+    navigation.navigate("Account");
+  };
+
+  const handleSettings = () => {
+    navigation.navigate("Settings");
+  };
 
   const renderBook = ({ item }) => (
     /* CardView Renderer */
@@ -91,7 +91,7 @@ export default function CardCatalog({ navigation, onPress }) {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.buttonProfile}
-            /* onPress={handleProfile} */
+            onPress={handleProfile}
           >
             <LottieView
               style={styles.buttonAnimationProfile}

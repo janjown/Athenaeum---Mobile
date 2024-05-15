@@ -49,6 +49,13 @@ export default function CardCatalog() {
     </View>
   );
   /* end of CardView Renderer */
+  const handleProfile = () => {
+    navigation.navigate("Account");
+  };
+
+  const handleSettings = () => {
+    navigation.navigate("Settings");
+  };
 
   /* if list is empty */
   const emptyList = (
@@ -71,7 +78,10 @@ export default function CardCatalog() {
           source={require("../assets/img/logo-white-ai-brushed.png")}
         />
         <View style={styles.animationContainer}>
-          <TouchableOpacity style={styles.buttonSettings}>
+          <TouchableOpacity
+            style={styles.buttonSettings}
+            onPress={handleSettings}
+          >
             <LottieView
               style={styles.buttonAnimationSettings}
               source={require("../assets/animations/settings.json")}
@@ -79,7 +89,10 @@ export default function CardCatalog() {
               loop
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonProfile}>
+          <TouchableOpacity
+            style={styles.buttonProfile}
+            onPress={handleProfile}
+          >
             <LottieView
               style={styles.buttonAnimationProfile}
               source={require("../assets/animations/user-profile.json")}

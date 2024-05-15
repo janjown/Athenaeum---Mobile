@@ -35,6 +35,13 @@ export default function CardCatalog() {
   };
 
   /* end of Refresher  */
+  const handleProfile = () => {
+    navigation.navigate("Account");
+  };
+
+  const handleSettings = () => {
+    navigation.navigate("Settings");
+  };
 
   const renderBook = ({ item }) => (
     /* CardView Renderer */
@@ -71,7 +78,10 @@ export default function CardCatalog() {
           source={require("../assets/img/logo-white-ai-brushed.png")}
         />
         <View style={styles.animationContainer}>
-          <TouchableOpacity style={styles.buttonSettings}>
+          <TouchableOpacity
+            style={styles.buttonSettings}
+            onPress={handleSettings}
+          >
             <LottieView
               style={styles.buttonAnimationSettings}
               source={require("../assets/animations/settings.json")}
@@ -79,7 +89,10 @@ export default function CardCatalog() {
               loop
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonProfile}>
+          <TouchableOpacity
+            style={styles.buttonProfile}
+            onPress={handleProfile}
+          >
             <LottieView
               style={styles.buttonAnimationProfile}
               source={require("../assets/animations/user-profile.json")}
@@ -96,7 +109,7 @@ export default function CardCatalog() {
 
       <FlatList
         style={styles.flatlistContainer}
-        data={books}
+        /* data={books} */
         renderItem={renderBook}
         keyExtractor={(item, id) => id.toString()}
         ListEmptyComponent={emptyList}
