@@ -19,7 +19,6 @@ import { useState } from "react";
 import LottieView from "lottie-react-native";
 // Component Imports
 import CardView from "../components/CardView";
-import Modal_Profile from "../components/Modal_Profile";
 import bookData, { books } from "../data_samples/bookData";
 export default function CardCatalog({ navigation, onPress }) {
   /* Itong part na 'to, it will act as a refresher.
@@ -109,7 +108,7 @@ export default function CardCatalog({ navigation, onPress }) {
 
       <FlatList
         style={styles.flatlistContainer}
-        data={books}
+        /* data={books} */
         renderItem={renderBook}
         keyExtractor={(item, id) => id.toString()}
         ListEmptyComponent={emptyList}

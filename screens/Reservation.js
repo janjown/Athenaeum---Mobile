@@ -19,9 +19,8 @@ import { useState } from "react";
 import LottieView from "lottie-react-native";
 // Component Imports
 import CardView from "../components/CardView";
-import Modal_Profile from "../components/Modal_Profile";
 import bookData, { books } from "../data_samples/bookData";
-export default function CardCatalog() {
+export default function Reservation({ navigation, onPress }) {
   /* Itong part na 'to, it will act as a refresher.
      Ikaw na bahala mag fetch ng data and how many 
      data yung ife-fetch per refresh. - Yorme     */
