@@ -26,48 +26,44 @@ export default function Register_Student({ navigation }) {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <KeyboardAvoidingView
-        style={{ flex: 1 }}
-        behavior={Platform.OS === "ios" ? "padding" : null}
-        keyboardVerticalOffset={Platform.OS === "ios" ? 0 : -500} // Adjust depending on platform
-      >
-        <ScrollView
-          contentContainerStyle={styles.scrollViewContent}
-          showsVerticalScrollIndicator={false}
+      <View style={styles.containerContents}>
+        <KeyboardAvoidingView
+          style={{ flex: 1 }}
+          keyboardVerticalOffset={Platform.OS === "ios" ? 0 : -500} // Adjust depending on platform
         >
-          <View>
-            <Image
-              style={styles.logo}
-              source={require("../assets/img/logo-no-background.png")}
-            />
-          </View>
-          <View style={styles.programSelection}>
-            <DropdownComponent />
-          </View>
-          <View style={styles.fillUpForm}>
-            <TextInputComponent placeholder={"ID Number"} />
-            <TextInputComponent placeholder={"Full Name"} />
-            <TextInputComponent
-              placeholder={"Institutional Email"}
-              keyboardType={"email-address"}
-            />
-            <TextInputComponent
-              placeholder={"Student Number"}
-              keyboardType={"default"}
-            />
-            <TextInputComponent placeholder={"Certificate of Registration"} />
-            <TextInputPassword placeholder={"Password"} />
-          </View>
-          <View>
-            <TouchableOpacity
-              style={styles.buttonRegister}
-              onPress={handleRegister}
-            >
-              <Text style={styles.buttonText}>Register</Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
+          <ScrollView
+            contentContainerStyle={styles.scrollViewContent}
+            showsVerticalScrollIndicator={false}
+          >
+            <View>
+              <Image
+                style={styles.logo}
+                source={require("../assets/img/logo-no-background.png")}
+              />
+            </View>
+            <View style={styles.programSelection}>
+              <DropdownComponent />
+            </View>
+            <View style={styles.fillUpForm}>
+              <TextInputComponent placeholder={"ID Number"} />
+              <TextInputComponent placeholder={"Full Name"} />
+              <TextInputComponent
+                placeholder={"Institutional Email"}
+                keyboardType={"email-address"}
+              />
+              <TextInputPassword placeholder={"Password"} />
+            </View>
+            <View>
+              <TouchableOpacity
+                style={styles.buttonRegister}
+                onPress={handleRegister}
+              >
+                <Text style={styles.buttonText}>Register</Text>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
+        </KeyboardAvoidingView>
+      </View>
     </SafeAreaView>
   );
 }
@@ -77,12 +73,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    paddingTop: hp(2),
+  },
+  containerContents: {
+    paddingTop: hp(5),
   },
   scrollViewContent: {
     flexGrow: 1,
     alignItems: "center",
-    paddingBottom: hp(15), // Adjust as needed for bottom padding
+    paddingBottom: hp(25), // Adjust as needed for bottom padding
   },
   logo: {
     height: hp(20),
@@ -112,7 +110,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#671111",
     fontFamily: "CreteRound-Regular",
     borderRadius: 10,
-    marginTop: hp(5),
+    marginTop: hp(10),
     height: hp(5),
     width: wp(50),
   },

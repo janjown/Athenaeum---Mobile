@@ -69,12 +69,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    paddingTop: hp(2),
   },
   scrollViewContent: {
     flexGrow: 1,
     alignItems: "center",
-    paddingBottom: hp(15), // Adjust as needed for bottom padding
+    paddingBottom: hp(25), // Adjust as needed for bottom padding
   },
   logo: {
     height: hp(20),
