@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import {
   StyleSheet,
   Text,
-  Image,
   View,
   KeyboardAvoidingView,
   Platform,
@@ -10,6 +9,7 @@ import {
   Modal,
   TextInput,
   Dimensions,
+  Image,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
@@ -44,7 +44,13 @@ export default function Login() {
   const loginTextY = useSharedValue(0);
   const logoY = useSharedValue(0);
   const inputY = useSharedValue(0);
-
+  const [fontsLoaded] = useFonts({
+    "CreteRound-Regular": require("../assets/fonts/CreteRound-Regular.ttf"),
+    "Figtree-VariableFont": require("../assets/fonts/Figtree-VariableFont_wght.ttf"),
+  });
+  if (!fontsLoaded) {
+    console.log("Fonts not loaded");
+  }
   const [randomQuotes, setRandomQuotes] = useState("");
   const loaderQuotes = [
     "Books are the mirrors of the soul. \n\n ― Virginia Woolf",
@@ -174,7 +180,15 @@ export default function Login() {
             <Animated.View
               style={[styles.animatedTextContainer, animatedLoginTextStyles]}
             >
-              <Text style={styles.text}>LOGIN</Text>
+              <Text
+                style={{
+                  fontFamily: "CreteRound-Regular",
+                  fontSize: 30,
+                  color: "#671111",
+                }}
+              >
+                LOGIN
+              </Text>
             </Animated.View>
             <Animated.View style={animatedInputStyles}>
               <TextInput
@@ -212,7 +226,15 @@ export default function Login() {
         </KeyboardAvoidingView>
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.buttonLogin} onPress={handleLogin}>
-            <Text style={styles.buttonText}>LOGIN</Text>
+            <Text
+              style={{
+                fontFamily: "CreteRound-Regular",
+                fontSize: 20,
+                color: "#FFF",
+              }}
+            >
+              LOGIN
+            </Text>
           </TouchableOpacity>
           <View style={styles.question}>
             <Text style={styles.textQuestion}> Don't have an account?</Text>
@@ -221,7 +243,15 @@ export default function Login() {
             style={styles.buttonRegister}
             onPress={handleRegister}
           >
-            <Text style={styles.buttonText}>Register</Text>
+            <Text
+              style={{
+                fontFamily: "CreteRound-Regular",
+                fontSize: 20,
+                color: "#FFF",
+              }}
+            >
+              Register
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -267,6 +297,7 @@ const styles = StyleSheet.create({
   },
   inputID: {
     backgroundColor: "white",
+    fontFamily: "CreteRound-Regular",
     borderWidth: 2,
     width: wp(85),
     height: hp(9),
@@ -280,7 +311,7 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     backgroundColor: "#671111",
-    fontFamily: "CreteRound-Regular", // IOS onle :<
+    fontFamily: "CreteRound-Regular",
     borderRadius: 10,
     height: hp(5),
   },
@@ -301,7 +332,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
-    fontFamily: "CreteRound-Regular",
   },
   question: {
     height: hp(5),
