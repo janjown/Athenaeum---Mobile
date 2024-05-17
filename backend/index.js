@@ -7,7 +7,7 @@ const crypto = require("crypto");
 const nodemailer = require("nodemailer");
 
 const app = express();
-const port = 8000;
+const port = 3000;
 const cors = require("cors");
 app.use(cors());
 
@@ -28,4 +28,8 @@ mongoose
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
+});
+
+app.get("/test", (req, res) => {
+  res.json({ message: "API is working!" });
 });
