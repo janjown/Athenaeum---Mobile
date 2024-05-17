@@ -6,10 +6,7 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -24,7 +21,6 @@ export default function Reservation({ navigation, onPress }) {
   /* Itong part na 'to, it will act as a refresher.
      Ikaw na bahala mag fetch ng data and how many 
      data yung ife-fetch per refresh. - Yorme     */
-
   const [refreshing, setRefreshing] = useState(false);
   const handleRefresh = () => {
     setRefreshing(true);

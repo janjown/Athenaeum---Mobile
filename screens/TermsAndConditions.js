@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-export default function Modal_Profile() {
+export default function TermsAndConditions() {
   return (
-    <Modal>
-      <Text>Account Profile</Text>
-    </Modal>
+    <View>
+      <Text>TermsAndConditions</Text>
+    </View>
   );
 }
 
