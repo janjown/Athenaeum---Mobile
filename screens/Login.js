@@ -20,6 +20,7 @@ import Animated, {
   useAnimatedStyle,
   PinwheelIn,
   PinwheelOut,
+  interpolateColor,
 } from "react-native-reanimated";
 import {
   widthPercentageToDP as wp,
@@ -40,10 +41,12 @@ export default function Login() {
   const togglePasswordVisibility = () => {
     setPasswordVisibility((prevState) => !prevState);
   };
-
+  // ShareValues
   const loginTextY = useSharedValue(0);
   const logoY = useSharedValue(0);
   const inputY = useSharedValue(0);
+  const colorRandomizer = useSharedValue(0);
+  // Arrays
   const [fontsLoaded] = useFonts({
     "CreteRound-Regular": require("../assets/fonts/CreteRound-Regular.ttf"),
     "Figtree-VariableFont": require("../assets/fonts/Figtree-VariableFont_wght.ttf"),
@@ -62,6 +65,7 @@ export default function Login() {
     "Aldub pa din. \n\n ― Mayor",
     "I kept always two books in my pocket, one to read, one to write in. \n\n ― Robert Louis Stevenson",
   ];
+  // Random Quotes for Loader
   const setRandomWelcomeMessage = () => {
     const randomIndex = Math.floor(Math.random() * loaderQuotes.length);
     setRandomQuotes(loaderQuotes[randomIndex]);
@@ -73,11 +77,12 @@ export default function Login() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+  // Navigation after Loader
   const navigation = useNavigation();
   const handleLogin = async () => {
     try {
       setisLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 2000)); // For visualization only. Remove the timeout on deployment.
+      await new Promise((resolve) => setTimeout(resolve, 10000)); // For visualization only. Remove the timeout on deployment.
       console.log(
         "Logging in with:",
         idNumber,
@@ -91,10 +96,13 @@ export default function Login() {
       setisLoading(false);
     }
   };
+
+  // Navigation to Register (Module)
   const handleRegister = () => {
     navigation.navigate("Module");
   };
 
+  // Animated Styles
   const animatedLoginTextStyles = useAnimatedStyle(() => {
     return {
       transform: [{ translateY: loginTextY.value }],
@@ -140,7 +148,11 @@ export default function Login() {
             <Animated.Text
               entering={PinwheelIn}
               exiting={PinwheelOut}
-              style={styles.loaderText}
+              style={{
+                fontFamily: "CreteRound-Regular",
+                fontSize: 30,
+                color: "maroon",
+              }}
             >
               Loading
             </Animated.Text>
@@ -150,7 +162,17 @@ export default function Login() {
               autoPlay
               loop
             />
-            <Text style={styles.loaderText}> {randomQuotes}</Text>
+            <Text
+              style={{
+                fontFamily: "CreteRound-Regular",
+                fontSize: 30,
+                color: "maroon",
+                textAlign: "center",
+              }}
+            >
+              {" "}
+              {randomQuotes}
+            </Text>
           </View>
         </View>
       </Modal>
@@ -293,11 +315,9 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontWeight: "bold",
     color: "#FAB907",
-    fontFamily: "CreteRound-Regular",
   },
   inputID: {
     backgroundColor: "white",
-    fontFamily: "CreteRound-Regular",
     borderWidth: 2,
     width: wp(85),
     height: hp(9),
@@ -311,7 +331,6 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     backgroundColor: "#671111",
-    fontFamily: "CreteRound-Regular",
     borderRadius: 10,
     height: hp(5),
   },
@@ -320,7 +339,6 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     backgroundColor: "#671111",
-    fontFamily: "CreteRound-Regular",
     borderRadius: 10,
     marginBottom: hp(2),
     height: hp(5),
@@ -338,7 +356,6 @@ const styles = StyleSheet.create({
     alignContent: "center",
     justifyContent: "center",
     alignItems: "center",
-    fontFamily: "CreteRound-Regular",
   },
   textQuestion: {
     fontFamily: "CreteRound-Regular",
@@ -365,6 +382,7 @@ const styles = StyleSheet.create({
   loaderStyle: {
     width: 200,
     height: 200,
+    fontFamily: "CreteRound-Regular",
   },
   loaderContainer: {
     borderRadius: 20,
