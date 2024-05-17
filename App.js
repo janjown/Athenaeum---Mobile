@@ -21,6 +21,7 @@ import Reservation from "./screens/Reservation";
 import Module from "./screens/Module";
 import Settings from "./screens/Settings";
 import Search from "./screens/Search";
+import ComponentMaker from "./ComponentMaker";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -104,7 +105,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SplashIntro">
+      <Stack.Navigator initialRouteName="Splash Intro">
         <Stack.Screen
           name="Splash Intro"
           component={SplashIntro}
@@ -143,6 +144,11 @@ export default function App() {
         <Stack.Screen
           name="Settings"
           component={Settings}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Component Maker"
+          component={ComponentMaker}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
