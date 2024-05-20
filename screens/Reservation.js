@@ -20,7 +20,7 @@ import bookData, { books } from "../data_samples/bookData";
 export default function Reservation({ navigation, onPress }) {
   /* Itong part na 'to, it will act as a refresher.
      Ikaw na bahala mag fetch ng data and how many 
-     data yung ife-fetch per refresh. - Yorme     */
+     data yung ife-fetch per refresh. - Yorme   */
   const [refreshing, setRefreshing] = useState(false);
   const handleRefresh = () => {
     setRefreshing(true);
