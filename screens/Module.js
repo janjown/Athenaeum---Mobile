@@ -4,8 +4,6 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import React from "react";
-import LottieView from "lottie-react-native";
-import Animated, { FadeInDown } from "react-native-reanimated";
 
 // Components
 import ButtonComponent from "../components/ButtonComponent";

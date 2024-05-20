@@ -29,6 +29,7 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   const scrollY = React.useRef(new Animated.Value(0)).current; // Create Animated.Value for tracking scroll position
 
+  // Tab Navigation
   const tabBarOpacity = scrollY.interpolate({
     inputRange: [0, 100], // Adjust these values as needed
     outputRange: [1, 0], // Adjust opacity values as needed
@@ -104,6 +105,7 @@ export default function App() {
   );
 
   return (
+    // Main Stack
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Splash Intro">
         <Stack.Screen
