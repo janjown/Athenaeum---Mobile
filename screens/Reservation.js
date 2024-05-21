@@ -72,30 +72,6 @@ export default function Reservation({ navigation, onPress }) {
           style={styles.logo}
           source={require("../assets/img/logo-white-ai-brushed.png")}
         />
-        <View style={styles.animationContainer}>
-          <TouchableOpacity
-            style={styles.buttonSettings}
-            onPress={handleSettings}
-          >
-            <LottieView
-              style={styles.buttonAnimationSettings}
-              source={require("../assets/animations/settings.json")}
-              autoPlay
-              loop
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.buttonProfile}
-            onPress={handleProfile}
-          >
-            <LottieView
-              style={styles.buttonAnimationProfile}
-              source={require("../assets/animations/user-profile.json")}
-              autoPlay
-              loop
-            />
-          </TouchableOpacity>
-        </View>
         {/* Section Title */}
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionText}>Reservation</Text>

@@ -21,10 +21,6 @@ import LottieView from "lottie-react-native";
 import CardView from "../components/CardView";
 import bookData, { books } from "../data_samples/bookData";
 export default function CardCatalog({ navigation, onPress }) {
-  /* Itong part na 'to, it will act as a refresher.
-     Ikaw na bahala mag fetch ng data and how many 
-     data yung ife-fetch per refresh. - Yorme     */
-
   const [refreshing, setRefreshing] = useState(false);
   const handleRefresh = () => {
     setRefreshing(true);
@@ -76,30 +72,6 @@ export default function CardCatalog({ navigation, onPress }) {
           style={styles.logo}
           source={require("../assets/img/logo-white-ai-brushed.png")}
         />
-        <View style={styles.animationContainer}>
-          <TouchableOpacity
-            style={styles.buttonSettings}
-            onPress={handleSettings}
-          >
-            <LottieView
-              style={styles.buttonAnimationSettings}
-              source={require("../assets/animations/settings.json")}
-              autoPlay
-              loop
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.buttonProfile}
-            onPress={handleProfile}
-          >
-            <LottieView
-              style={styles.buttonAnimationProfile}
-              source={require("../assets/animations/user-profile.json")}
-              autoPlay
-              loop
-            />
-          </TouchableOpacity>
-        </View>
         {/* Section Title */}
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionText}>Card Catalog</Text>
@@ -108,7 +80,7 @@ export default function CardCatalog({ navigation, onPress }) {
 
       <FlatList
         style={styles.flatlistContainer}
-        /* data={books} */
+        data={books}
         renderItem={renderBook}
         keyExtractor={(item, id) => id.toString()}
         ListEmptyComponent={emptyList}
