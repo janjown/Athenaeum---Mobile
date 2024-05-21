@@ -82,7 +82,7 @@ export default function Login() {
   const handleLogin = async () => {
     try {
       setisLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 10000)); // For visualization only. Remove the timeout on deployment.
+      await new Promise((resolve) => setTimeout(resolve, 5000)); // For visualization only. Remove the timeout on deployment.
       console.log(
         "Logging in with:",
         idNumber,
@@ -145,17 +145,6 @@ export default function Login() {
       >
         <View style={styles.modalContainer}>
           <View style={styles.loaderContainer}>
-            <Animated.Text
-              entering={PinwheelIn}
-              exiting={PinwheelOut}
-              style={{
-                fontFamily: "CreteRound-Regular",
-                fontSize: 30,
-                color: "maroon",
-              }}
-            >
-              Loading
-            </Animated.Text>
             <LottieView
               style={styles.loaderStyle}
               source={require("../assets/animations/loader.json")}
