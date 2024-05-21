@@ -3,7 +3,6 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 // idk baka magamit mo. Di ko pa siya na-utilize ng ayos
-const crypto = require("crypto");
 const nodemailer = require("nodemailer");
 
 const app = express();

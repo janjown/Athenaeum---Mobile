@@ -15,6 +15,7 @@ import SplashIntro from "./screens/SplashIntro";
 import Login from "./screens/Login";
 import Register_Student from "./screens/Register_Student";
 import Register_Faculty from "./screens/Register_Faculty";
+import Account from "./screens/Account";
 import CardCatalog from "./screens/CardCatalog";
 import Borrowed from "./screens/Borrowed";
 import Reservation from "./screens/Reservation";
@@ -22,6 +23,7 @@ import Module from "./screens/Module";
 import Settings from "./screens/Settings";
 import Search from "./screens/Search";
 import ComponentMaker from "./ComponentMaker";
+import Tailwind from "./screens/Tailwind";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -101,6 +103,34 @@ export default function App() {
           headerShown: false,
         }}
       />
+      <Tab.Screen
+        name="Account"
+        component={Account}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons
+              name={focused ? "person" : "person-outline"}
+              size={size}
+              color={color}
+            />
+          ),
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons
+              name={focused ? "settings" : "settings-outline"}
+              size={size}
+              color={color}
+            />
+          ),
+          headerShown: false,
+        }}
+      />
     </Tab.Navigator>
   );
 
@@ -149,8 +179,18 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name="Account"
+          component={Account}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="Component Maker"
           component={ComponentMaker}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Tailwind"
+          component={Tailwind}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
