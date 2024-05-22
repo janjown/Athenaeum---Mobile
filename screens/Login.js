@@ -18,9 +18,6 @@ import Animated, {
   useSharedValue,
   withSpring,
   useAnimatedStyle,
-  PinwheelIn,
-  PinwheelOut,
-  interpolateColor,
 } from "react-native-reanimated";
 import {
   widthPercentageToDP as wp,

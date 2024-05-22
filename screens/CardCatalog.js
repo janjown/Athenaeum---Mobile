@@ -1,11 +1,4 @@
-import {
-  View,
-  StyleSheet,
-  FlatList,
-  Image,
-  Text,
-  TouchableOpacity,
-} from "react-native";
+import { View, StyleSheet, FlatList, Image, Text } from "react-native";
 
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -16,10 +9,11 @@ import {
 } from "react-native-responsive-screen";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import LottieView from "lottie-react-native";
-// Component Imports
+// Components
 import CardView from "../components/CardView";
-import bookData, { books } from "../data_samples/bookData";
+
+// Sample Data
+import { books } from "../data_samples/bookData";
 export default function CardCatalog({ navigation, onPress }) {
   const [refreshing, setRefreshing] = useState(false);
   const handleRefresh = () => {
@@ -28,15 +22,7 @@ export default function CardCatalog({ navigation, onPress }) {
       setRefreshing(false);
     }, 2000);
   };
-
   /* end of Refresher  */
-  const handleProfile = () => {
-    navigation.navigate("Account");
-  };
-
-  const handleSettings = () => {
-    navigation.navigate("Settings");
-  };
 
   const renderBook = ({ item }) => (
     /* CardView Renderer */
