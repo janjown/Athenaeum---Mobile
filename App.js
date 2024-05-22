@@ -138,6 +138,7 @@ export default function App() {
     // Main Stack
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Splash Intro">
+        {/* "Component Maker" */}
         <Stack.Screen
           name="Splash Intro"
           component={SplashIntro}
