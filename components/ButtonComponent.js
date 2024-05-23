@@ -4,10 +4,10 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
-export default function ButtonComponent({ text, onPress, navigation }) {
+export default function ButtonComponent({ text, onPress, navigation, style }) {
   return (
     <TouchableOpacity
-      style={styles.buttonContainer}
+      style={[styles.buttonContainer, style]}
       onPress={onPress}
       activeOpacity={0.7}
     >
@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
     width: wp(45),
     height: hp(20),
     alignItems: "center",
-    justifyContent: "center",
     alignSelf: "center",
     backgroundColor: "#671111",
     justifyContent: "center",

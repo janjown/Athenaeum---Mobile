@@ -11,6 +11,7 @@ export default function SearchBarComponent({
   value,
   onChangeText,
   onSearch,
+  placeholder,
 }) {
   return (
     <View style={[styles.container, style]}>
@@ -18,7 +19,7 @@ export default function SearchBarComponent({
         <View style={styles.textInput}>
           <TextInput
             style={styles.textInputStyle}
-            placeholder="Search..."
+            placeholder={placeholder}
             placeholderTextColor="#999"
             value={value}
             onChangeText={onChangeText}
