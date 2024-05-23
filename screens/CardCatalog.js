@@ -14,7 +14,7 @@ import CardView from "../components/CardView";
 
 // Sample Data
 import { books } from "../data_samples/bookData";
-export default function CardCatalog({ navigation, onPress }) {
+export default function CardCatalog() {
   const [refreshing, setRefreshing] = useState(false);
   const handleRefresh = () => {
     setRefreshing(true);
