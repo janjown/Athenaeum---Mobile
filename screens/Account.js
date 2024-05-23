@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import React from "react";
-
+import ButtonNormal from "../components/ButtonNormal";
 export default function Account() {
   return (
     <View style={styles.container}>
@@ -16,6 +16,25 @@ export default function Account() {
         {/* Section Title */}
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionText}>Account</Text>
+        </View>
+      </View>
+      {/* Body */}
+      <View style={styles.bodyContainer}>
+        <TouchableOpacity activeOpacity={0.7} style={styles.profileContainer}>
+          <Image
+            source={require("../assets/img/EARIST-LOGO.png")}
+            style={styles.profilePicture}
+          />
+        </TouchableOpacity>
+        {/* User Info */}
+        <View style={styles.userInfo}>
+          <Text style={[styles.accountName]}>John Henry C. Angas</Text>
+          <Text style={styles.accountStudentNumber}>20-0012-OL</Text>
+        </View>
+        {/* Functionalities */}
+        <View>
+          <ButtonNormal backgroundColor={"red"} />
+          <ButtonNormal backgroundColor={"violet"} />
         </View>
       </View>
     </View>
@@ -68,5 +87,24 @@ const styles = StyleSheet.create({
     alignContent: "center",
     textAlign: "center",
     alignItems: "center",
+  },
+  bodyContainer: {
+    backgroundColor: "white",
+    alignItems: "center",
+    alignContent: "center",
+  },
+  profileContainer: {
+    marginBottom: hp(2),
+  },
+  profileBG: {
+    backgroundColor: "red",
+  },
+  profilePicture: {
+    width: wp(30),
+    height: hp(20),
+  },
+  userInfo: {
+    alignItems: "center",
+    alignContent: "center",
   },
 });

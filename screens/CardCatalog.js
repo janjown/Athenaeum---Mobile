@@ -83,7 +83,8 @@ const styles = StyleSheet.create({
   flatlistContainer: {
     marginTop: hp(0),
     marginLeft: wp(1),
-  },
+    borderRadius: 35,
+  }, // checkpoint
   container: {
     flex: 1,
     backgroundColor: "white",

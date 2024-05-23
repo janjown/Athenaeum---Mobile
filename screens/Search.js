@@ -43,7 +43,10 @@ export default function Search() {
         style={styles.emptyListImage}
         source={require("../assets/img/cat_search.png")}
       />
-      <Text style={styles.emptyListText}>Search something. {"\n"}- Meemaw</Text>
+      <Text style={styles.emptyListText}>
+        Search something, check your spelling, and.... {"\n"}
+        that is all {"\n"}- Meemaw
+      </Text>
     </View>
   );
   const handleRefresh = () => {
@@ -82,6 +85,7 @@ export default function Search() {
         <SearchBarComponent
           style={styles.searchBar}
           value={searchQuery}
+          placeholder={"Type a book title or the author..."}
           onChangeText={setSearchQuery}
           onSearch={handleSearch}
         />
