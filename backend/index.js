@@ -1,23 +1,22 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
+import express from "express";
+import bodyParser from "body-parser";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import userRoutes from "./routes/user.route.js";
 
-// idk baka magamit mo. Di ko pa siya na-utilize ng ayos
-const nodemailer = require("nodemailer");
+dotenv.config();
 
 const app = express();
 const port = 3000;
-const cors = require("cors");
-app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const jwt = require("jsonwebtoken");
-require("dotenv").config();
-
 mongoose
-  .connect(process.env.MONGO_DB)
+  .connect(process.env.MONGO_DB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("Welcome to Athenaeum v1.0.0!");
   })
@@ -25,10 +24,8 @@ mongoose
     console.log("Error connecting to MongoDB :<", err);
   });
 
+app.use("/api/user", userRoutes);
+
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
-});
-
-app.get("/test", (req, res) => {
-  res.json({ message: "API is working!" });
 });
