@@ -1,6 +1,7 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import "react-native-gesture-handler";
-import { StyleSheet, Animated } from "react-native"; // Import Animated
+import { StyleSheet, Animated, View, ActivityIndicator } from "react-native";
+import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -30,6 +31,20 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   const scrollY = React.useRef(new Animated.Value(0)).current; // Create Animated.Value for tracking scroll position
+
+  // For the font to load globally
+  const [fontsLoaded] = useFonts({
+    "CreteRound-Regular": require("./assets/fonts/CreteRound-Regular.ttf"),
+    "Figtree-VariableFont": require("./assets/fonts/Figtree-VariableFont_wght.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#7D0707" />
+      </View>
+    );
+  }
 
   // Tab Navigation
   const tabBarOpacity = scrollY.interpolate({
@@ -189,11 +204,6 @@ export default function App() {
           component={ComponentMaker}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
-          name="Tailwind"
-          component={Tailwind}
-          options={{ headerShown: false }}
-        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -204,7 +214,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#E8D0D0",
     height: hp(10),
     position: "absolute",
-    bottom: hp(0),
     borderTopWidth: 0,
     paddingTop: hp(3),
     paddingBottom: hp(2.5),
@@ -212,9 +221,15 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     display: "flex",
-    bottom: hp(2),
+    bottom: hp(3),
     right: wp(5),
     left: wp(5),
     borderRadius: 90,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff",
   },
 });
