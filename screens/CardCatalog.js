@@ -1,31 +1,35 @@
 import { View, StyleSheet, FlatList, Image, Text } from "react-native";
-
-import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-
+import React, { useState } from "react";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
+import LottieView from "lottie-react-native";
 // Components
 import CardView from "../components/CardView";
-
 // Sample Data
 import { books } from "../data_samples/bookData";
+
 export default function CardCatalog() {
   const [refreshing, setRefreshing] = useState(false);
+  const [loadingMore, setLoadingMore] = useState(false);
+
   const handleRefresh = () => {
     setRefreshing(true);
     setTimeout(() => {
       setRefreshing(false);
-    }, 2000);
+    }, 2000); // Simulates of refreshing, remove value on deployment
   };
-  /* end of Refresher  */
+
+  const handleLoadMore = () => {
+    setLoadingMore(true);
+    setTimeout(() => {
+      setLoadingMore(false);
+    }, 10000); // Simulates loading more data, remove value on deployment
+  };
 
   const renderBook = ({ item }) => (
-    /* CardView Renderer */
     <View>
       <View>
         <CardView
@@ -36,9 +40,21 @@ export default function CardCatalog() {
       </View>
     </View>
   );
-  /* end of CardView Renderer */
 
-  /* if list is empty */
+  const ListFooterComponent = () => {
+    if (!loadingMore) return null;
+    return (
+      <View style={styles.footerContainer}>
+        <LottieView
+          style={styles.loaderStyle}
+          source={require("../assets/animations/loader.json")}
+          autoPlay
+          loop
+        />
+      </View>
+    );
+  };
+
   const emptyList = (
     <View style={styles.emptyListContainer}>
       <Image
@@ -50,15 +66,12 @@ export default function CardCatalog() {
   );
 
   return (
-    /* Container */
     <View style={styles.container}>
-      {/* Header */}
       <View style={styles.headerContainer}>
         <Image
           style={styles.logo}
           source={require("../assets/img/logo-white-ai-brushed.png")}
         />
-        {/* Section Title */}
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionText}>Card Catalog</Text>
         </View>
@@ -70,8 +83,11 @@ export default function CardCatalog() {
         renderItem={renderBook}
         keyExtractor={(item, id) => id.toString()}
         ListEmptyComponent={emptyList}
+        ListFooterComponent={ListFooterComponent}
         refreshing={refreshing}
         onRefresh={handleRefresh}
+        onEndReached={handleLoadMore}
+        onEndReachedThreshold={1}
         showsVerticalScrollIndicator={false}
       />
       <StatusBar style="light" translucent={true} hidden={false} />
@@ -84,7 +100,7 @@ const styles = StyleSheet.create({
     marginTop: hp(0),
     marginLeft: wp(1),
     borderRadius: 35,
-  }, // checkpoint
+  },
   container: {
     flex: 1,
     backgroundColor: "white",
@@ -119,7 +135,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: hp(2),
   },
-
   sectionText: {
     fontFamily: "CreteRound-Regular",
     fontSize: 20,
@@ -200,5 +215,29 @@ const styles = StyleSheet.create({
     position: "absolute",
     flexDirection: "row",
     gap: wp(70),
+  },
+  footerContainer: {
+    position: "relative",
+    borderTopWidth: 0,
+    borderColor: "#CED0CE",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingBottom: hp(20),
+  },
+  absoluteLoaderContainer: {
+    position: "absolute",
+    bottom: 100,
+    left: 0,
+    right: 0,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  loaderStyle: {
+    position: "absolute",
+    width: wp(20),
+    height: hp(24),
+    bottom: hp(5),
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
