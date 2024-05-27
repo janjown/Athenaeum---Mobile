@@ -25,10 +25,7 @@ import {
 } from "react-native-responsive-screen";
 import LottieView from "lottie-react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { useFonts } from "expo-font";
 export default function Login() {
-  /* const user = ["Angas"]; */
-
   const [isLoading, setisLoading] = useState(false);
   const [idNumber, setidNumber] = useState("");
   const [password, setPassword] = useState("");
@@ -44,13 +41,6 @@ export default function Login() {
   const inputY = useSharedValue(0);
   const colorRandomizer = useSharedValue(0);
   // Arrays
-  const [fontsLoaded] = useFonts({
-    "CreteRound-Regular": require("../assets/fonts/CreteRound-Regular.ttf"),
-    "Figtree-VariableFont": require("../assets/fonts/Figtree-VariableFont_wght.ttf"),
-  });
-  if (!fontsLoaded) {
-    console.log("Fonts not loaded");
-  }
   const [randomQuotes, setRandomQuotes] = useState("");
   const loaderQuotes = [
     "Books are the mirrors of the soul. \n\n ― Virginia Woolf",
