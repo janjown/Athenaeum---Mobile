@@ -27,10 +27,7 @@ export default function Register_Student({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.containerContents}>
-        <KeyboardAvoidingView
-          style={{ flex: 1 }}
-          keyboardVerticalOffset={Platform.OS === "ios" ? 0 : -500} // Adjust depending on platform
-        >
+        <KeyboardAvoidingView style={{ flex: 1 }}>
           <ScrollView
             contentContainerStyle={styles.scrollViewContent}
             showsVerticalScrollIndicator={false}
