@@ -26,7 +26,7 @@ export default function Borrowed() {
     setLoadingMore(true);
     setTimeout(() => {
       setLoadingMore(false);
-    }, 10000); // Simulates loading more data, remove value on deployment
+    }); // Simulates loading more data, remove value on deployment
   };
 
   const renderBook = ({ item }) => (

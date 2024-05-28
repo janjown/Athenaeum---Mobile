@@ -79,11 +79,17 @@ export default function Account() {
         </View>
         {/* Functionalities */}
         <View style={styles.buttonContainer}>
-          <ButtonNormal backgroundColor={"violet"} text={"Update Password"} />
+          <ButtonNormal
+            backgroundColor={"violet"}
+            text={"Update Password"}
+            borderColor="darkred"
+            borderWidth={5}
+          />
           <ButtonNormal
             backgroundColor={"red"}
             text={"Delete Account"}
             fontFamily={"Figtree-VariableFont"}
+            borderColor="green"
           />
         </View>
       </View>
