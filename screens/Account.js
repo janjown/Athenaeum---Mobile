@@ -4,8 +4,21 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import React from "react";
+import { useFonts } from "expo-font";
 import ButtonNormal from "../components/ButtonNormal";
 export default function Account() {
+  const [fontsLoaded] = useFonts({
+    "CreteRound-Regular": require("../assets/fonts/CreteRound-Regular.ttf"),
+    "Figtree-VariableFont": require("../assets/fonts/Figtree-VariableFont_wght.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#7D0707" />
+      </View>
+    );
+  }
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -28,13 +41,50 @@ export default function Account() {
         </TouchableOpacity>
         {/* User Info */}
         <View style={styles.userInfo}>
-          <Text style={[styles.accountName]}>John Henry C. Angas</Text>
-          <Text style={styles.accountStudentNumber}>20-0012-OL</Text>
+          <Text
+            style={{
+              fontSize: 20,
+              fontFamily: "Figtree-VariableFont",
+              fontWeight: "bold",
+            }}
+          >
+            John Henry C. Angas
+          </Text>
+          <View style={styles.userInfo}>
+            <Text
+              style={{
+                fontSize: 15,
+                fontFamily: "Figtree-VariableFont",
+              }}
+            >
+              20-0012-OL
+            </Text>
+            <Text
+              style={{
+                fontSize: 15,
+                fontFamily: "Figtree-VariableFont",
+              }}
+            >
+              angas.johnhenry.eccbscs@gmail.com
+            </Text>
+            <Text
+              style={{
+                fontSize: 15,
+                fontFamily: "Figtree-VariableFont",
+              }}
+            >
+              BSCS
+            </Text>
+          </View>
         </View>
         {/* Functionalities */}
-        <View>
-          <ButtonNormal backgroundColor={"red"} />
-          <ButtonNormal backgroundColor={"violet"} />
+        <View style={styles.buttonContainer}>
+          <ButtonNormal backgroundColor={"violet"} text={"Update Password"} />
+          <ButtonNormal
+            backgroundColor={"red"}
+            text={"Delete Account"}
+            fontFamily={"Figtree-VariableFont"}
+          />
         </View>
       </View>
     </View>
@@ -103,8 +153,27 @@ const styles = StyleSheet.create({
     width: wp(30),
     height: hp(20),
   },
+  userName: {
+    alignItems: "center",
+    alignContent: "center",
+  },
   userInfo: {
     alignItems: "center",
     alignContent: "center",
+    marginTop: hp(1),
+  },
+  buttonContainer: {
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    marginTop: hp(17),
+    marginBottom: hp(2),
+    width: wp(80),
+    height: hp(10),
+    alignContent: "center",
+    justifyContent: "center",
+    alignContent: "center",
+    textAlign: "center",
+    alignItems: "center",
+    gap: hp(2),
   },
 });
