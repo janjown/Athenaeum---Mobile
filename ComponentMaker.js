@@ -1,40 +1,14 @@
-import React, { useState } from "react";
-import { StyleSheet, View, TextInput, TouchableOpacity } from "react-native";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
-import { Ionicons } from "@expo/vector-icons";
-import LottieView from "lottie-react-native";
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
 
-export default function TextInputComponent({ ...rest }) {
+const ComponentMaker = () => {
   return (
-    <View style={styles.container}>
-      <LottieView
-        style={styles.loaderStyle}
-        source={require("./assets/animations/student.json")}
-        autoPlay
-        loop
-      />
+    <View className="flex-1 justify-center items-center">
+      <Text>ComponentMaker</Text>
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  loaderStyle: {
-    width: 200,
-    height: 200,
-  },
-  loaderContainer: {
-    borderRadius: 20,
-    padding: 20,
-    alignContent: "center",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+export default ComponentMaker;
+
+const styles = StyleSheet.create({});

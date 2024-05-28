@@ -204,6 +204,11 @@ export default function App() {
           component={ComponentMaker}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="Tailwind"
+          component={Tailwind}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
