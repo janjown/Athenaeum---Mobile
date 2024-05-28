@@ -8,13 +8,15 @@ import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 export default function ButtonNormal({
   text,
   onPress,
-  navigation,
+  borderColor,
   style,
   backgroundColor,
+  navigation,
+  borderWidth,
 }) {
   return (
     <TouchableOpacity
-      style={[styles.buttonContainer, style]}
+      style={[styles.buttonContainer, style, borderColor, borderWidth]}
       onPress={onPress}
       activeOpacity={0.7}
     >
@@ -32,7 +34,7 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 25,
-    width: wp(45),
+    width: wp(65),
     height: hp(5),
     alignItems: "center",
     alignSelf: "center",
@@ -40,7 +42,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "white",
-    fontWeight: "bold",
     textAlign: "center",
   },
 });
