@@ -11,7 +11,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 // Components
 import SearchBarComponent from "../components/SearchBarComponent";
 import CardView from "../components/CardView";
@@ -169,7 +169,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignContent: "center",
     textAlign: "center",
-    alignItems: "center",
   },
   emptyListImage: {
     height: hp(30),
