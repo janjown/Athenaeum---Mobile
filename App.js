@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "react-native-gesture-handler";
 import { StyleSheet, Animated, View, ActivityIndicator } from "react-native";
 import { useFonts } from "expo-font";
@@ -30,8 +30,6 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  const scrollY = React.useRef(new Animated.Value(0)).current; // Create Animated.Value for tracking scroll position
-
   // For the font to load globally
   const [fontsLoaded] = useFonts({
     "CreteRound-Regular": require("./assets/fonts/CreteRound-Regular.ttf"),
@@ -45,13 +43,6 @@ export default function App() {
       </View>
     );
   }
-
-  // Tab Navigation
-  const tabBarOpacity = scrollY.interpolate({
-    inputRange: [0, 100], // Adjust these values as needed
-    outputRange: [1, 0], // Adjust opacity values as needed
-    extrapolate: "clamp",
-  });
 
   const TabNavigator = () => (
     <Tab.Navigator
