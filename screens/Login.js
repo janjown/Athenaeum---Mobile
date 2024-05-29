@@ -29,7 +29,6 @@ export default function Login() {
   const [isLoading, setisLoading] = useState(false);
   const [idNumber] = useState("");
   const [password, setPassword] = useState("");
-  
 
   // Password Visibility Configurations
   const [passwordVisibility, setPasswordVisibility] = useState(true);
