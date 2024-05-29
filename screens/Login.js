@@ -27,7 +27,7 @@ import LottieView from "lottie-react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 export default function Login() {
   const [isLoading, setisLoading] = useState(false);
-  const [idNumber, setidNumber] = useState("");
+  const [idNumber] = useState("");
   const [password, setPassword] = useState("");
 
   // Password Visibility Configurations
@@ -39,7 +39,6 @@ export default function Login() {
   const loginTextY = useSharedValue(0);
   const logoY = useSharedValue(0);
   const inputY = useSharedValue(0);
-  const colorRandomizer = useSharedValue(0);
   // Arrays
   const [randomQuotes, setRandomQuotes] = useState("");
   const loaderQuotes = [
@@ -334,12 +333,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   textQuestion: {
-    fontFamily: "CreteRound-Regular",
-  },
-  loaderText: {
-    fontSize: 17,
-    fontWeight: "bold",
-    color: "#671111",
     fontFamily: "CreteRound-Regular",
   },
   loaderText: {
