@@ -128,7 +128,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignContent: "center",
     textAlign: "center",
-    alignItems: "center",
     marginBottom: hp(2),
   },
   sectionText: {
@@ -142,7 +141,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignContent: "center",
     textAlign: "center",
-    alignItems: "center",
   },
   bodyContainer: {
     backgroundColor: "white",
@@ -175,8 +173,6 @@ const styles = StyleSheet.create({
     marginBottom: hp(2),
     width: wp(80),
     height: hp(10),
-    alignContent: "center",
-    justifyContent: "center",
     alignContent: "center",
     textAlign: "center",
     alignItems: "center",

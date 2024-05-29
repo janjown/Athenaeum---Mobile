@@ -8,8 +8,6 @@ import { StatusBar } from "expo-status-bar";
 import LottieView from "lottie-react-native";
 // Components
 import CardView from "../components/CardView";
-// Sample Data
-import { books } from "../data_samples/bookData";
 
 export default function Borrowed() {
   const [refreshing, setRefreshing] = useState(false);
@@ -132,7 +130,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignContent: "center",
     textAlign: "center",
-    alignItems: "center",
     marginBottom: hp(2),
   },
   sectionText: {
@@ -146,7 +143,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignContent: "center",
     textAlign: "center",
-    alignItems: "center",
   },
   emptyListText: {
     fontFamily: "CreteRound-Regular",
@@ -159,7 +155,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignContent: "center",
     textAlign: "center",
-    alignItems: "center",
   },
   emptyListImage: {
     height: hp(30),
@@ -168,14 +163,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: hp(5),
-    alignContent: "center",
-    marginTop: hp(5),
   },
   emptyListContainer: {
     justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
-    alignItems: "center",
     marginTop: hp(20),
     marginBottom: hp(20),
     marginLeft: wp(20),

@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignContent: "center",
     textAlign: "center",
-    alignItems: "center",
     marginBottom: hp(2),
   },
   sectionText: {
@@ -67,6 +66,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignContent: "center",
     textAlign: "center",
-    alignItems: "center",
   },
 });

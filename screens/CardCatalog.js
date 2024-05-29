@@ -132,7 +132,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignContent: "center",
     textAlign: "center",
-    alignItems: "center",
     marginBottom: hp(2),
   },
   sectionText: {
@@ -146,7 +145,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignContent: "center",
     textAlign: "center",
-    alignItems: "center",
   },
   emptyListText: {
     fontFamily: "CreteRound-Regular",
@@ -159,7 +157,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignContent: "center",
     textAlign: "center",
-    alignItems: "center",
   },
   emptyListImage: {
     height: hp(30),
@@ -168,14 +165,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: hp(5),
-    alignContent: "center",
-    marginTop: hp(5),
   },
   emptyListContainer: {
     justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
-    alignItems: "center",
+
     marginTop: hp(20),
     marginBottom: hp(20),
     marginLeft: wp(20),
