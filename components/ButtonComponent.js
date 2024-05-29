@@ -5,7 +5,7 @@ import {
 } from "react-native-responsive-screen";
 import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 import { useFonts } from "expo-font";
-export default function ButtonComponent({ text, onPress, navigation, style }) {
+export default function ButtonComponent({ text, onPress, style }) {
   const [fontsLoaded] = useFonts({
     "CreteRound-Regular": require("../assets/fonts/CreteRound-Regular.ttf"),
     "Figtree-VariableFont": require("../assets/fonts/Figtree-VariableFont_wght.ttf"),
