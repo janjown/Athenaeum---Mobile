@@ -28,7 +28,8 @@
       [
         "expo-font",
         {
-          "fonts": ["./assets/fonts/CreteRound-Regular.ttf"]
+          "fonts": ["./assets/fonts/CreteRound-Regular.ttf"],
+          "fonts": ["./assets/fonts/Figtree-VariableFont_wght.ttf"]
         }
       ]
     ]
