@@ -16,55 +16,38 @@ export default function Settings() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const toggleDarkMode = () => setIsDarkMode((previousState) => !previousState);
 
-  const dynamicStyles = isDarkMode ? darkStyles : lightStyles;
-
   return (
-    <View style={[styles.container, dynamicStyles.container]}>
-      <View style={[styles.headerContainer, dynamicStyles.headerContainer]}>
+    <View style={styles.container}>
+      <View style={styles.headerContainer}>
         <Image
           style={styles.logo}
           source={require("../assets/img/logo-white-ai-brushed.png")}
         />
         <View style={styles.sectionContainer}>
-          <Text style={dynamicStyles.sectionText}>Settings</Text>
+          <Text style={styles.sectionText}>Settings</Text>
         </View>
       </View>
 
       <View style={styles.settingsContainer}>
-        {/* Dark Mode Settings */}
-        <View style={styles.settingItem}>
-          <Text style={dynamicStyles.settingText}>Dark Mode</Text>
-          <Switch
-            trackColor={{ false: "#767577", true: "#81b0ff" }}
-            thumbColor={isDarkMode ? "#f5dd4b" : "#f4f3f4"}
-            ios_backgroundColor="#3e3e3e"
-            onValueChange={toggleDarkMode}
-            value={isDarkMode}
-          />
-        </View>
-
         {/* Account Settings */}
         <TouchableOpacity style={styles.settingItem}>
-          <Text style={dynamicStyles.settingText}>Change Password</Text>
+          <Text style={styles.settingText}>Change Password</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.settingItem}>
-          <Text style={dynamicStyles.settingText}>Privacy Settings</Text>
+          <Text style={styles.settingText}>Privacy Settings</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.settingItem}>
-          <Text style={dynamicStyles.settingText}>Language</Text>
+          <Text style={styles.settingText}>Language</Text>
         </TouchableOpacity>
 
         {/* About Section */}
-        <View style={styles.sectionContainer}>
-          <Text style={dynamicStyles.sectionText}>About</Text>
-        </View>
         <TouchableOpacity style={styles.settingItem}>
-          <Text style={dynamicStyles.settingText}>Terms of Service</Text>
+          <Text style={styles.settingText}>Terms of Service</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.settingItem}>
-          <Text style={dynamicStyles.settingText}>Privacy Policy</Text>
+          <Text style={styles.settingText}>Privacy Policy</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -76,6 +59,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     alignContent: "center",
+    backgroundColor: "white", // Set background color to white
   },
   headerContainer: {
     height: hp(18),
@@ -85,6 +69,7 @@ const styles = StyleSheet.create({
     alignContent: "center",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#780000", // Set background color for header
   },
   logo: {
     width: wp(50),
@@ -100,6 +85,16 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: hp(2),
   },
+  sectionText: {
+    fontFamily: "CreteRound-Regular",
+    fontSize: 20,
+    color: "white", // Set text color to white
+    marginTop: hp(1),
+    marginBottom: hp(1),
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+  },
   settingsContainer: {
     width: wp(90),
     marginTop: hp(2),
@@ -112,50 +107,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#dcdcdc",
   },
-});
-
-const lightStyles = StyleSheet.create({
-  container: {
-    backgroundColor: "white",
-  },
-  headerContainer: {
-    backgroundColor: "#780000",
-  },
-  sectionText: {
-    fontFamily: "CreteRound-Regular",
-    fontSize: 20,
-    color: "white",
-    marginTop: hp(1),
-    marginBottom: hp(1),
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
-  },
   settingText: {
-    fontSize: 18,
-    color: "#333",
-  },
-});
-
-const darkStyles = StyleSheet.create({
-  container: {
-    backgroundColor: "#333",
-  },
-  headerContainer: {
-    backgroundColor: "#555",
-  },
-  sectionText: {
-    fontFamily: "CreteRound-Regular",
     fontSize: 20,
-    color: "white",
-    marginTop: hp(1),
-    marginBottom: hp(1),
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
-  },
-  settingText: {
-    fontSize: 18,
-    color: "white",
+    color: "#333", // Set text color to dark gray
   },
 });
