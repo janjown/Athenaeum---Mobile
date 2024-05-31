@@ -1,6 +1,6 @@
 import React from "react";
 import "react-native-gesture-handler";
-import { StyleSheet, View, ActivityIndicator } from "react-native";
+import { StyleSheet } from "react-native";
 import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -10,7 +10,6 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { ThemeProvider, useTheme } from "./ThemeContext"; // Import the ThemeProvider and useTheme hook
 
 // Screen Imports
 import SplashIntro from "./screens/SplashIntro";
@@ -31,17 +30,12 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
-  const { isDarkMode } = useTheme(); // Access the dark mode state
-  const dynamicTabBarStyle = isDarkMode
-    ? darkStyles.tabBarStyle
-    : styles.tabBarStyle;
-
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarStyle: dynamicTabBarStyle,
-        tabBarActiveTintColor: isDarkMode ? "#FFD700" : "#7D0707",
-        tabBarInactiveTintColor: isDarkMode ? "#808080" : "#870F0F",
+        tabBarStyle: styles.tabBarStyle,
+        tabBarActiveTintColor: "#7D0707",
+        tabBarInactiveTintColor: "#870F0F",
         tabBarShowLabel: false,
       }}
     >
@@ -134,82 +128,74 @@ const TabNavigator = () => {
 };
 
 export default function App() {
-  // For the font to load globally
   const [fontsLoaded] = useFonts({
     "CreteRound-Regular": require("./assets/fonts/CreteRound-Regular.ttf"),
     "Figtree-VariableFont": require("./assets/fonts/Figtree-VariableFont_wght.ttf"),
   });
 
   if (!fontsLoaded) {
-    return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#7D0707" />
-      </View>
-    );
+    console.log("No fonts loaded");
   }
-
   return (
-    <ThemeProvider>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Splash Intro">
-          <Stack.Screen
-            name="Splash Intro"
-            component={SplashIntro}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Login"
-            component={Login}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Student Registration"
-            component={Register_Student}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Faculty Registration"
-            component={Register_Faculty}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Module"
-            component={Module}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Card Catalog"
-            component={TabNavigator}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Reservation"
-            component={Reservation}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Settings"
-            component={Settings}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Account"
-            component={Account}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Component Maker"
-            component={ComponentMaker}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Tailwind"
-            component={Tailwind}
-            options={{ headerShown: false }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </ThemeProvider>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Splash Intro">
+        <Stack.Screen
+          name="Splash Intro"
+          component={SplashIntro}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Student Registration"
+          component={Register_Student}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Faculty Registration"
+          component={Register_Faculty}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Module"
+          component={Module}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Card Catalog"
+          component={TabNavigator}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Reservation"
+          component={Reservation}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Settings"
+          component={Settings}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Account"
+          component={Account}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Component Maker"
+          component={ComponentMaker}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Tailwind"
+          component={Tailwind}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
@@ -235,24 +221,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fff",
-  },
-});
-
-const darkStyles = StyleSheet.create({
-  tabBarStyle: {
-    backgroundColor: "#333",
-    height: hp(10),
-    position: "absolute",
-    borderTopWidth: 0,
-    paddingTop: hp(3),
-    paddingBottom: hp(2.5),
-    justifyContent: "center",
-    alignContent: "center",
-    alignItems: "center",
-    display: "flex",
-    bottom: hp(3),
-    right: wp(5),
-    left: wp(5),
-    borderRadius: 90,
   },
 });
