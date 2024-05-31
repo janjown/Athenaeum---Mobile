@@ -8,18 +8,21 @@ import { StatusBar } from "expo-status-bar";
 import LottieView from "lottie-react-native";
 // Components
 import CardView from "../components/CardView";
+import BookModal from "../components/BookModal";
 // Sample Data
 import { books } from "../data_samples/bookData";
 
 export default function CardCatalog() {
   const [refreshing, setRefreshing] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedBook, setSelectedBook] = useState(null);
 
   const handleRefresh = () => {
     setRefreshing(true);
     setTimeout(() => {
       setRefreshing(false);
-    }, 2000); // Simulates of refreshing, remove value on deployment
+    }, 2000); // Simulates refreshing, remove value on deployment
   };
 
   const handleLoadMore = () => {
@@ -29,15 +32,23 @@ export default function CardCatalog() {
     }, 10000); // Simulates loading more data, remove value on deployment
   };
 
+  const handleBookPress = (book) => {
+    setSelectedBook(book);
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+    setSelectedBook(null);
+  };
+
   const renderBook = ({ item }) => (
     <View>
-      <View>
-        <CardView
-          onPress={() => console.log("User tapped a book.")}
-          book_title={item.book_title}
-          book_author={item.book_author}
-        />
-      </View>
+      <CardView
+        onPress={() => handleBookPress(item)}
+        book_title={item.book_title}
+        book_author={item.book_author}
+      />
     </View>
   );
 
@@ -91,6 +102,12 @@ export default function CardCatalog() {
         showsVerticalScrollIndicator={false}
       />
       <StatusBar style="light" translucent={true} hidden={false} />
+
+      <BookModal
+        visible={modalVisible}
+        book={selectedBook}
+        onClose={closeModal}
+      />
     </View>
   );
 }
@@ -170,7 +187,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
-
     marginTop: hp(20),
     marginBottom: hp(20),
     marginLeft: wp(20),
@@ -181,35 +197,6 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 100,
     borderBottomLeftRadius: 100,
     borderBottomRightRadius: 100,
-  },
-  buttonProfile: {
-    width: wp(10),
-    height: hp(5),
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  buttonAnimationProfile: {
-    width: wp(10),
-    height: hp(5),
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  buttonSettings: {
-    width: wp(10),
-    height: hp(5),
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  buttonAnimationSettings: {
-    width: wp(10),
-    height: hp(5),
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  animationContainer: {
-    position: "absolute",
-    flexDirection: "row",
-    gap: wp(70),
   },
   footerContainer: {
     position: "relative",
