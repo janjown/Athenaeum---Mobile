@@ -1,16 +1,29 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  TextInput,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import React from "react";
 import { useFonts } from "expo-font";
 import ButtonNormal from "../components/ButtonNormal";
+import TextInputPassword from "../components/TextInputPassword";
+
 export default function Account() {
   const [fontsLoaded] = useFonts({
     "CreteRound-Regular": require("../assets/fonts/CreteRound-Regular.ttf"),
     "Figtree-VariableFont": require("../assets/fonts/Figtree-VariableFont_wght.ttf"),
   });
+
+  const [isTextInputFocused, setIsTextInputFocused] = useState(false);
 
   if (!fontsLoaded) {
     return (
@@ -19,81 +32,59 @@ export default function Account() {
       </View>
     );
   }
+
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
       <View style={styles.headerContainer}>
         <Image
           style={styles.logo}
           source={require("../assets/img/logo-white-ai-brushed.png")}
         />
-        {/* Section Title */}
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionText}>Account</Text>
         </View>
       </View>
-      {/* Body */}
       <View style={styles.bodyContainer}>
-        <TouchableOpacity activeOpacity={0.7} style={styles.profileContainer}>
-          <Image
-            source={require("../assets/img/EARIST-LOGO.png")}
-            style={styles.profilePicture}
+        {!isTextInputFocused && (
+          <>
+            <TouchableOpacity
+              activeOpacity={0.7}
+              style={styles.profileContainer}
+            >
+              <Image
+                source={require("../assets/img/EARIST-LOGO.png")}
+                style={styles.profilePicture}
+              />
+            </TouchableOpacity>
+            <View style={styles.userInfo}>
+              <Text style={styles.userName}>John Henry C. Angas</Text>
+              <Text style={styles.userDetails}>20-0012-OL</Text>
+              <Text style={styles.userDetails}>
+                angas.johnhenry.eccbscs@gmail.com
+              </Text>
+              <Text style={styles.userDetails}>BSCS</Text>
+            </View>
+          </>
+        )}
+        <View style={styles.updatePassword}>
+          <TextInputPassword
+            onFocus={() => setIsTextInputFocused(true)}
+            onBlur={() => setIsTextInputFocused(false)}
           />
-        </TouchableOpacity>
-        {/* User Info */}
-        <View style={styles.userInfo}>
-          <Text
-            style={{
-              fontSize: 20,
-              fontFamily: "Figtree-VariableFont",
-              fontWeight: "bold",
-            }}
-          >
-            John Henry C. Angas
-          </Text>
-          <View style={styles.userInfo}>
-            <Text
-              style={{
-                fontSize: 15,
-                fontFamily: "Figtree-VariableFont",
-              }}
-            >
-              20-0012-OL
-            </Text>
-            <Text
-              style={{
-                fontSize: 15,
-                fontFamily: "Figtree-VariableFont",
-              }}
-            >
-              angas.johnhenry.eccbscs@gmail.com
-            </Text>
-            <Text
-              style={{
-                fontSize: 15,
-                fontFamily: "Figtree-VariableFont",
-              }}
-            >
-              BSCS
-            </Text>
-          </View>
         </View>
-        {/* Functionalities */}
         <View style={styles.buttonContainer}>
-          <ButtonNormal
-            backgroundColor={"violet"}
-            text={"Update Password"}
-            borderColor="darkred"
-            borderWidth={5}
-          />
+          <ButtonNormal backgroundColor={"#780000"} text={"Update Password"} />
           <ButtonNormal
             backgroundColor={"red"}
             text={"Delete Account"}
             fontFamily={"Figtree-VariableFont"}
-            borderColor="green"
           />
         </View>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -102,7 +93,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
     alignItems: "center",
-    alignContent: "center",
   },
   headerContainer: {
     height: hp(18),
@@ -126,7 +116,6 @@ const styles = StyleSheet.create({
     height: hp(5),
     justifyContent: "center",
     alignItems: "center",
-    alignContent: "center",
     textAlign: "center",
     marginBottom: hp(2),
   },
@@ -136,46 +125,52 @@ const styles = StyleSheet.create({
     color: "white",
     marginTop: hp(1),
     marginBottom: hp(1),
-    marginLeft: wp(0),
-    justifyContent: "center",
-    alignItems: "center",
-    alignContent: "center",
     textAlign: "center",
   },
   bodyContainer: {
     backgroundColor: "white",
     alignItems: "center",
     alignContent: "center",
+    width: wp(90),
+    marginTop: hp(2),
   },
   profileContainer: {
     marginBottom: hp(2),
   },
-  profileBG: {
-    backgroundColor: "red",
-  },
   profilePicture: {
     width: wp(30),
     height: hp(20),
-  },
-  userName: {
-    alignItems: "center",
-    alignContent: "center",
   },
   userInfo: {
     alignItems: "center",
     alignContent: "center",
     marginTop: hp(1),
   },
+  userName: {
+    fontSize: 20,
+    fontFamily: "Figtree-VariableFont",
+    fontWeight: "bold",
+  },
+  userDetails: {
+    fontSize: 15,
+    fontFamily: "Figtree-VariableFont",
+  },
+  updatePassword: {
+    marginTop: hp(5),
+  },
   buttonContainer: {
     flexDirection: "column",
     justifyContent: "space-evenly",
-    marginTop: hp(17),
+    marginTop: hp(5),
     marginBottom: hp(2),
     width: wp(80),
     height: hp(10),
-    alignContent: "center",
-    textAlign: "center",
     alignItems: "center",
     gap: hp(2),
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
