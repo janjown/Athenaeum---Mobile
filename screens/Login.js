@@ -27,7 +27,7 @@ import LottieView from "lottie-react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 export default function Login() {
   const [isLoading, setisLoading] = useState(false);
-  const [idNumber] = useState("");
+  const [idNumber, setIdNumber] = useState(""); // Fixed here
   const [password, setPassword] = useState("");
 
   // Password Visibility Configurations
@@ -191,7 +191,7 @@ export default function Login() {
               <TextInput
                 style={styles.inputID}
                 placeholder="ID Number"
-                onChangeText={(text) => setidNumber(text)}
+                onChangeText={(text) => setIdNumber(text)}
                 value={idNumber}
                 onFocus={onFocusInput}
                 onBlur={onBlurInput}
