@@ -4,7 +4,6 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { StatusBar } from "expo-status-bar";
 import LottieView from "lottie-react-native";
 // Components
 import CardView from "../components/CardView";
@@ -89,7 +88,6 @@ export default function Reservation() {
         onEndReachedThreshold={0.5}
         showsVerticalScrollIndicator={false}
       />
-      <StatusBar style="light" translucent={true} hidden={false} />
     </View>
   );
 }
