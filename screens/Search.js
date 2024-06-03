@@ -17,7 +17,7 @@ import SearchBarComponent from "../components/SearchBarComponent";
 import CardView from "../components/CardView";
 
 // Sample Data
-import { search_books } from "../data_samples/searchData/";
+import { books } from "../data_samples/bookData";
 
 export default function Search() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -27,7 +27,7 @@ export default function Search() {
 
   // Search Filter Function
   const handleSearch = () => {
-    const filtered = search_books.filter(
+    const filtered = books.filter(
       (book) =>
         book.book_title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         book.book_author.toLowerCase().includes(searchQuery.toLowerCase())
@@ -85,7 +85,7 @@ export default function Search() {
         <SearchBarComponent
           style={styles.searchBar}
           value={searchQuery}
-          placeholder={"Type a book title or the author..."}
+          placeholder={"Type something then hit the search icon."}
           onChangeText={setSearchQuery}
           onSearch={handleSearch}
         />
