@@ -24,7 +24,9 @@ import Module from "./screens/Module";
 import Settings from "./screens/Settings";
 import Search from "./screens/Search";
 import ComponentMaker from "./ComponentMaker";
-import Tailwind from "./screens/Tailwind";
+import About from "./screens/About";
+import TermsAndConditions from "./screens/TermsAndConditions";
+import PrivacyPolicy from "./screens/PrivacyPolicy";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -190,8 +192,18 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Tailwind"
-          component={Tailwind}
+          name="About"
+          component={About}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TermsAndConditions"
+          component={TermsAndConditions}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Privacy Policy"
+          component={PrivacyPolicy}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
