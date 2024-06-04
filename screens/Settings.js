@@ -16,9 +16,9 @@ import LottieView from "lottie-react-native";
 
 const settingsOptions = [
   { id: "1", title: "Account", icon: "person" },
-  { id: "2", title: "Notifications", icon: "notifications" },
-  { id: "3", title: "Privacy", icon: "lock-closed" },
-  { id: "4", title: "Help", icon: "help-circle" },
+  { id: "2", title: "Terms and Conditions", icon: "alert" },
+  { id: "3", title: "Privacy Policy", icon: "lock-closed" },
+  { id: "4", title: "About", icon: "information" },
   { id: "5", title: "Logout", icon: "log-out" },
 ];
 
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#f5deb3",
     borderColor: "#8b4513",
     borderWidth: 2,
-    borderRadius: 5,
+    borderRadius: 20,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     marginLeft: wp(9),
   },
   animation: {
-    left: wp(70),
+    left: wp(65),
     marginTop: hp(1),
     height: hp(20),
     width: wp(30),
