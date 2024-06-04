@@ -17,7 +17,7 @@ import {
 export default function SplashIntro() {
   const navigation = useNavigation();
   useEffect(() => {
-    setTimeout(() => navigation.navigate("Login"), 7000);
+    setTimeout(() => navigation.navigate("Login"), 6000);
   }, []);
 
   let [fontsLoaded] = useFonts({
@@ -27,10 +27,7 @@ export default function SplashIntro() {
     return null;
   } else {
     return (
-      <SafeAreaView
-        style={styles.container}
-        className="flex-1 justify-center items-center dark:bg-neutral-900"
-      >
+      <SafeAreaView style={styles.container}>
         <Animated.Image
           entering={FadeInDown.delay(1200).springify()}
           style={styles.logo}
