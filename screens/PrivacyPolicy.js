@@ -7,7 +7,7 @@ import {
 } from "react-native-responsive-screen";
 
 import ButtonComponent from "../components/ButtonComponent";
-export default function TermsAndConditions() {
+export default function PrivacyPolicy() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>

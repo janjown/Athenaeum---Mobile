@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text, ScrollView, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
   widthPercentageToDP as wp,
@@ -7,14 +8,15 @@ import {
 } from "react-native-responsive-screen";
 
 import ButtonComponent from "../components/ButtonComponent";
-export default function TermsAndConditions({ navigation }) {
+export default function TermsAndConditions() {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require("../images/logo_bago.png")}
+            source={require("../assets/img/logo.png")}
             resizeMode="contain"
           />
         </View>
@@ -105,7 +107,7 @@ export default function TermsAndConditions({ navigation }) {
         <View style={styles.buttonContainer}>
           <ButtonComponent
             text="Accept"
-            onPress={() => navigation.navigate("First Time Install")}
+            onPress={() => navigation.navigate("Settings")}
           />
         </View>
       </ScrollView>
@@ -126,23 +128,22 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   logo: {
-    height: hp(40),
+    height: hp(30),
     width: wp(80),
-    bottom: hp(15),
+    bottom: hp(5),
     alignSelf: "center",
   },
   titleStyle: {
+    marginTop: hp(7),
     fontWeight: "bold",
     fontSize: 22,
     textAlign: "center",
   },
   contents: {
     width: wp(100),
-    gap: 5,
   },
   contentStyle: {
     fontSize: 15,
-
     width: wp(90),
     alignSelf: "center",
     alignContent: "center",
