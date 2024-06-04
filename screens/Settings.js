@@ -11,24 +11,42 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import { useNavigation } from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import LottieView from "lottie-react-native";
+import WordSlide from "../components/WordSlide";
 
 const settingsOptions = [
   { id: "1", title: "Account", icon: "person" },
-  { id: "2", title: "Terms and Conditions", icon: "alert" },
-  { id: "3", title: "Privacy Policy", icon: "lock-closed" },
-  { id: "4", title: "About", icon: "information" },
+  {
+    id: "2",
+    title: "Terms and Conditions",
+    icon: "alert",
+    screen: "TermsAndConditions",
+  },
+  {
+    id: "3",
+    title: "Privacy Policy",
+    icon: "lock-closed",
+    screen: "Privacy Policy",
+  },
+  { id: "4", title: "About Athenaeum", icon: "information", screen: "About" },
   { id: "5", title: "Logout", icon: "log-out" },
 ];
 
 export default function Settings() {
   const renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.optionContainer} activeOpacity={0.8}>
+    <TouchableOpacity
+      style={styles.optionContainer}
+      activeOpacity={0.8}
+      onPress={() => navigation.navigate(item.screen)}
+    >
       <Ionicons name={item.icon} size={24} color="maroon" />
       <Text style={styles.optionText}>{item.title}</Text>
     </TouchableOpacity>
   );
+
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -41,13 +59,16 @@ export default function Settings() {
           <Text style={styles.sectionText}>Settings</Text>
         </View>
       </View>
-      <View>
+      <View style={styles.wordSlideContainer}>
         <LottieView
           style={styles.animation}
           source={require("../assets/animations/faculty.json")}
           autoPlay={true}
           loop={true}
         />
+        <View style={styles.wordSlide}>
+          <WordSlide />
+        </View>
       </View>
       <FlatList
         style={styles.listContainer}
@@ -122,9 +143,23 @@ const styles = StyleSheet.create({
     marginLeft: wp(9),
   },
   animation: {
+    top: hp(3.5),
     left: wp(65),
     marginTop: hp(1),
     height: hp(20),
     width: wp(30),
+  },
+  wordSlideContainer: {
+    alignItems: "center",
+    flexDirection: "row",
+  },
+  wordSlide: {
+    position: "absolute",
+    alignItems: "center",
+    justifyContent: "center",
+    left: wp(10),
+    height: hp(20),
+    width: wp(50),
+    flexWrap: "wrap",
   },
 });

@@ -63,6 +63,7 @@ export default function Login() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
   // Navigation after Loader
   const navigation = useNavigation();
   const handleLogin = async () => {
