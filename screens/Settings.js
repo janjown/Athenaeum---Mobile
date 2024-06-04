@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     marginLeft: wp(9),
   },
   animation: {
-    left: wp(65),
+    left: wp(70),
     marginTop: hp(1),
     height: hp(20),
     width: wp(30),
