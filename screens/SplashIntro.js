@@ -47,14 +47,21 @@ export default function SplashIntro() {
             style={styles.appTitle2}
             className="font-bold absolute"
           >
-            RE
+            E
           </Animated.Text>
           <Animated.Text
             entering={BounceInRight.delay(2000)}
             style={styles.appTitle3}
             className="font-bold absolute"
           >
-            WORK
+            C
+          </Animated.Text>
+          <Animated.Text
+            entering={BounceInRight.delay(2200)}
+            style={styles.appTitle4}
+            className="font-bold absolute"
+          >
+            C
           </Animated.Text>
         </View>
 
@@ -107,6 +114,12 @@ const styles = StyleSheet.create({
     fontFamily: "CreteRound-Regular",
   },
   appTitle3: {
+    top: hp(55),
+    fontSize: 40,
+    color: "#cdcf65",
+    fontFamily: "CreteRound-Regular",
+  },
+  appTitle4: {
     top: hp(55),
     fontSize: 40,
     color: "#cdcf65",

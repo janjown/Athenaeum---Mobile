@@ -7,12 +7,16 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
-import ButtonComponent from "../components/ButtonComponent";
+import ButtonPolicy from "../components/ButtonPolicy";
+
 export default function TermsAndConditions() {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
@@ -25,13 +29,13 @@ export default function TermsAndConditions() {
         <View style={styles.contents}>
           {/* Terms and Conditions */}
           <Text style={styles.contentStyle}>
-            Athenaeum developers hereby strictly reminds you to read and
-            understand carefully to our terms and conditions. When reading,
-            please focus especially on these factors. You read the agreement and
-            then decide whether or not to accept it.
+            Athenaeum developers hereby strictly remind you to read and
+            understand carefully our terms and conditions. When reading, please
+            focus especially on these factors. You read the agreement and then
+            decide whether or not to accept it.
           </Text>
 
-          <Text style={styles.titleStyle}>
+          <Text style={styles.sectionTitle}>
             About the Athenaeum Mobile Application
           </Text>
           <Text style={styles.contentStyle}>
@@ -44,70 +48,73 @@ export default function TermsAndConditions() {
             transactions there are corresponding policies and penalties over the
             actions of every user.
           </Text>
-          <Text style={styles.titleStyle}>
+
+          <Text style={styles.sectionTitle}>
             Terms and Conditions on Creating User Account
           </Text>
 
           {/* Account Creation Policy */}
-          <Text style={styles.titleStyle}>Creating an Account</Text>
+          <Text style={styles.subSectionTitle}>Creating an Account</Text>
           <Text style={styles.pointer}> 1.1 Registration: </Text>
           <Text style={styles.contentStyle}>
-            During the registration process the all the credentials asked should
-            be filled out honestly to the needed field. Also, the institutional
+            During the registration process, all the credentials asked should be
+            filled out honestly in the required fields. Also, the institutional
             Gmail should be used.
           </Text>
           <Text style={styles.pointer}> 1.2 Logging in: </Text>
           <Text style={styles.contentStyle}>
-            During the logging in process, the two needed filled should be
-            thrice try only, once it already reaches it logging in tries, it
-            will be restricted and locked.
+            During the logging in process, the two needed fields should be
+            entered correctly within three tries only. If the login attempts
+            exceed this limit, the account will be restricted and locked.
           </Text>
           <Text style={styles.pointer}> 1.3 Account Tab: </Text>
           <Text style={styles.contentStyle}>
-            In account tab, the user will be able to edit his details
+            In the account tab, the user will be able to edit their details
             accordingly.
           </Text>
+
           {/* Book Transactions */}
-          <Text style={styles.titleStyle}>
+          <Text style={styles.sectionTitle}>
             Terms and Conditions on Book Transactions
           </Text>
-          <Text style={styles.titleStyle}>Borrowing</Text>
+          <Text style={styles.subSectionTitle}>Borrowing</Text>
           <Text style={styles.pointer}> 1.1 Overdue: </Text>
           <Text style={styles.contentStyle}>
-            The overdue books will be notified on the status field in the user
+            The overdue books will be notified in the status field in the user
             account.
           </Text>
-
-          <Text style={styles.pointer}> 1.2 Lost Books or Damage books: </Text>
+          <Text style={styles.pointer}> 1.2 Lost Books or Damaged Books: </Text>
           <Text style={styles.contentStyle}>
-            The lost books should be replaced by a book purchased book amount or
-            the similar book.
+            The lost books should be replaced by a purchased book of the same
+            amount or a similar book.
           </Text>
           <Text style={styles.pointer}> 1.3 Replacement: </Text>
           <Text style={styles.contentStyle}>
-            The replacement of the book is a day after the book was issued.
+            The replacement of the book is required a day after the book was
+            issued.
           </Text>
-          <Text style={styles.titleStyle}>Reservation</Text>
+
+          <Text style={styles.subSectionTitle}>Reservation</Text>
           <Text style={styles.pointer}> 2.1 Reservation Time: </Text>
           <Text style={styles.contentStyle}>
-            The user who will make a reservation will reserve during the library
+            The user who will make a reservation must do so during the library
             hours. All transactions should occur during library hours.
           </Text>
           <Text style={styles.pointer}> 2.2 Reservation Status: </Text>
           <Text style={styles.contentStyle}>
-            The user who will make a reservation will wait until the admin will
-            accept or decline the user reservation.
+            The user who will make a reservation must wait until the admin
+            accepts or declines the user reservation.
           </Text>
           <Text style={styles.pointer}> 2.3 Reservation Qualification: </Text>
           <Text style={styles.contentStyle}>
-            Updated Certificate of Registration in ECC.
+            An updated Certificate of Registration in ECC.
           </Text>
         </View>
 
         <View style={styles.buttonContainer}>
-          <ButtonComponent
+          <ButtonPolicy
             text="Accept"
-            onPress={() => navigation.navigate("Settings")}
+            onPress={() => navigation.navigate("Card Catalog")}
           />
         </View>
       </ScrollView>
@@ -118,42 +125,70 @@ export default function TermsAndConditions() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "#f8f9fa",
+    paddingHorizontal: wp(5),
   },
   logoContainer: {
     height: hp(12),
     width: wp(80),
     alignSelf: "center",
+    marginTop: hp(3),
   },
   logo: {
-    height: hp(30),
+    height: hp(15),
     width: wp(80),
-    bottom: hp(5),
-    alignSelf: "center",
   },
   titleStyle: {
-    marginTop: hp(7),
-    fontWeight: "bold",
-    fontSize: 22,
+    marginTop: hp(3),
+    fontSize: 24,
     textAlign: "center",
+    color: "#343a40",
+    fontFamily: "CreteRound-Regular",
   },
   contents: {
-    width: wp(100),
-  },
-  contentStyle: {
-    fontSize: 15,
+    marginTop: hp(2),
     width: wp(90),
     alignSelf: "center",
-    alignContent: "center",
+    backgroundColor: "#fff",
+    padding: wp(5),
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    borderColor: "#8b4513",
+    borderWidth: 1,
+    elevation: 2,
+  },
+  sectionTitle: {
+    marginTop: hp(2),
+    fontWeight: "bold",
+    fontSize: 20,
+    textAlign: "left",
+    color: "#495057",
+  },
+  subSectionTitle: {
+    marginTop: hp(1),
+    fontSize: 18,
+    textAlign: "left",
+    color: "#6c757d",
+    fontFamily: "CreteRound-Regular",
+  },
+  contentStyle: {
+    fontSize: 16,
+    marginTop: hp(1),
     textAlign: "justify",
+    color: "#6c757d",
+    lineHeight: 22,
+    fontFamily: "Figtree-VariableFont",
   },
   pointer: {
-    fontWeight: "bold",
+    marginTop: hp(1),
+    color: "#212529",
+    fontFamily: "CreteRound-Regular",
   },
   buttonContainer: {
     marginTop: hp(3),
-    height: hp(10),
+    alignItems: "center",
   },
 });
