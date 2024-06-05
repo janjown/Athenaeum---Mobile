@@ -17,7 +17,7 @@ import LottieView from "lottie-react-native";
 import WordSlide from "../components/WordSlide";
 
 const settingsOptions = [
-  { id: "1", title: "Account", icon: "person" },
+  { id: "1", title: "Account", icon: "person", screen: "Account" },
   {
     id: "2",
     title: "Terms and Conditions",
