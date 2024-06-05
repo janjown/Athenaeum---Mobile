@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   containerContents: {
-    paddingTop: hp(5),
+    paddingTop: hp(3),
   },
   scrollViewContent: {
     flexGrow: 1,

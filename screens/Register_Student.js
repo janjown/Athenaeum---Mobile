@@ -5,7 +5,6 @@ import {
   Image,
   ScrollView,
   KeyboardAvoidingView,
-  Platform,
   TouchableOpacity,
 } from "react-native";
 import React from "react";
@@ -72,12 +71,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   containerContents: {
-    paddingTop: hp(5),
+    paddingTop: hp(3),
   },
   scrollViewContent: {
     flexGrow: 1,
     alignItems: "center",
-    paddingBottom: hp(25), // Adjust as needed for bottom padding
+    paddingBottom: hp(20), // Adjust as needed for bottom padding
   },
   logo: {
     height: hp(20),

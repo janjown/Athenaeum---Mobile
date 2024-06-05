@@ -29,10 +29,10 @@ export default function TermsAndConditions() {
         <View style={styles.contents}>
           {/* Terms and Conditions */}
           <Text style={styles.contentStyle}>
-            Athenaeum developers hereby strictly remind you to read and
-            understand carefully our terms and conditions. When reading, please
-            focus especially on these factors. You read the agreement and then
-            decide whether or not to accept it.
+            Athenaeum developers strictly remind you to read and understand
+            carefully our terms and conditions. When reading, please focus
+            especially on these factors. You read the agreement and then decide
+            whether or not to accept it.
           </Text>
 
           <Text style={styles.sectionTitle}>
@@ -59,13 +59,12 @@ export default function TermsAndConditions() {
           <Text style={styles.contentStyle}>
             During the registration process, all the credentials asked should be
             filled out honestly in the required fields. Also, the institutional
-            Gmail should be used.
+            gmail should be used.
           </Text>
           <Text style={styles.pointer}> 1.2 Logging in: </Text>
           <Text style={styles.contentStyle}>
-            During the logging in process, the two needed fields should be
-            entered correctly within three tries only. If the login attempts
-            exceed this limit, the account will be restricted and locked.
+            During the log in process, the two needed fields should be entered
+            correctly.
           </Text>
           <Text style={styles.pointer}> 1.3 Account Tab: </Text>
           <Text style={styles.contentStyle}>
@@ -78,36 +77,15 @@ export default function TermsAndConditions() {
             Terms and Conditions on Book Transactions
           </Text>
           <Text style={styles.subSectionTitle}>Borrowing</Text>
-          <Text style={styles.pointer}> 1.1 Overdue: </Text>
+          <Text style={styles.pointer}> 1.1 Damaged Books: </Text>
           <Text style={styles.contentStyle}>
-            The overdue books will be notified in the status field in the user
-            account.
-          </Text>
-          <Text style={styles.pointer}> 1.2 Lost Books or Damaged Books: </Text>
-          <Text style={styles.contentStyle}>
-            The lost books should be replaced by a purchased book of the same
+            The damaged books should be replaced by a purchased book of the same
             amount or a similar book.
           </Text>
-          <Text style={styles.pointer}> 1.3 Replacement: </Text>
+          <Text style={styles.pointer}> 1.2 Replacement: </Text>
           <Text style={styles.contentStyle}>
             The replacement of the book is required a day after the book was
             issued.
-          </Text>
-
-          <Text style={styles.subSectionTitle}>Reservation</Text>
-          <Text style={styles.pointer}> 2.1 Reservation Time: </Text>
-          <Text style={styles.contentStyle}>
-            The user who will make a reservation must do so during the library
-            hours. All transactions should occur during library hours.
-          </Text>
-          <Text style={styles.pointer}> 2.2 Reservation Status: </Text>
-          <Text style={styles.contentStyle}>
-            The user who will make a reservation must wait until the admin
-            accepts or declines the user reservation.
-          </Text>
-          <Text style={styles.pointer}> 2.3 Reservation Qualification: </Text>
-          <Text style={styles.contentStyle}>
-            An updated Certificate of Registration in ECC.
           </Text>
         </View>
 
