@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: "#780000",
     textAlign: "center",
+    fontFamily: "CreteRound-Regular",
   },
 });
 
