@@ -19,7 +19,6 @@ import Register_Faculty from "./screens/Register_Faculty";
 import Account from "./screens/Account";
 import CardCatalog from "./screens/CardCatalog";
 import Borrowed from "./screens/Borrowed";
-import Reservation from "./screens/Reservation";
 import Module from "./screens/Module";
 import Settings from "./screens/Settings";
 import Search from "./screens/Search";
@@ -62,20 +61,6 @@ const TabNavigator = () => {
           tabBarIcon: ({ focused, color, size }) => (
             <Ionicons
               name={focused ? "library" : "library-outline"}
-              size={size}
-              color={color}
-            />
-          ),
-          headerShown: false,
-        }}
-      />
-      <Tab.Screen
-        name="Reservation"
-        component={Reservation}
-        options={{
-          tabBarIcon: ({ focused, color, size }) => (
-            <Ionicons
-              name={focused ? "reader" : "reader-outline"}
               size={size}
               color={color}
             />
@@ -169,11 +154,6 @@ export default function App() {
         <Stack.Screen
           name="Card Catalog"
           component={TabNavigator}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Reservation"
-          component={Reservation}
           options={{ headerShown: false }}
         />
         <Stack.Screen
