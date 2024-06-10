@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
   labelContainer: {
     flex: 1,
     flexDirection: "row",
-    flexWrap: "wrap", // Allow text to wrap when it reaches max width
+    flexWrap: "wrap",
   },
   label: {
     fontSize: 14,
